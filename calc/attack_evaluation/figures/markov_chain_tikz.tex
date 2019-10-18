@@ -1,0 +1,27 @@
+\tikzset{
+defaultnode/.style={
+  circle,
+  inner sep=0pt,
+  text width=10mm,
+  align=center,
+  draw=black,
+  fill=white
+  }
+}
+
+\noindent
+\begin{tikzpicture}
+\node[state, initial above, defaultnode] (s0) {$S_0$};
+\node[state, right = 3mm of s0, defaultnode] (s1) {$S_1$};
+\node[state, right = 3mm of s1, defaultnode] (sdot) {$...$};
+\node[state, accepting, right = 3mm of sdot, defaultnode] (sl) {$S_{\ell}$};
+%\draw   (s0) edge[loop above] node{0} (s0)
+\path[->]   (s0) edge[loop below] node{$\beta$} (s0)
+(s0) edge[bend left, above] node{$\omega$} (s1)
+(s1) edge[bend left, above] node{$\beta$} (s0)
+(s1) edge[bend left, above] node{$\omega$} (sdot)
+(sdot) edge[bend left=40, below] node{$\beta$} (s0)
+(sdot) edge[bend left, above] node{$\omega$} (sl)
+(sl) edge[loop above] node{$1$} (sl);
+\end{tikzpicture}
+
