@@ -13076,7 +13076,7 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[199]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -13085,6 +13085,8 @@ div#notebook {
 
 <span class="kn">from</span> <span class="nn">decimal</span> <span class="k">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">scipy.special</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">itertools</span>
@@ -13097,7 +13099,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[200]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
@@ -13114,7 +13116,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[200]:</div>
+    <div class="prompt output_prompt">Out[5]:</div>
 
 
 
@@ -14289,8 +14291,8 @@ $\omega$  	&amp; whale costs 	&amp; \makecell{p2w\\ budget} 	&amp; \% whale 	&am
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>What is the probability that the two chains (funding and attack chain) desynchronize during an attack i.e.,
-that two Bitcoin blocks are mined in close succession without an Ethereum block in between.</p>
-<p>The time between Bitcoin and Ethereum blocks is exponentially distributed.
+that two (or more) Bitcoin blocks are mined in close succession without an Ethereum block in between.</p>
+<p>The time between Bitcoin as well as the time between Ethereum blocks is exponentially distributed.
 Assuming constant difficulty and overall hashrate, Ethereum has a mean block interval i.e., an expected value $E(x)$ of $ 15 $ seconds, whereas Bitcoin has a mean block interval of $ 10\cdot 60 $ seconds.</p>
 $$
 \begin{align}
@@ -14313,7 +14315,8 @@ $$
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Probability-that-the-time-between-two-Bitcoin-blocks-is-smaller-than-the-mean-Etheruem-block-interval">Probability that the time between two Bitcoin blocks is smaller than the mean Etheruem block interval<a class="anchor-link" href="#Probability-that-the-time-between-two-Bitcoin-blocks-is-smaller-than-the-mean-Etheruem-block-interval">&#182;</a></h4><p>What is the probability that the time between two Bitcoin blocks is less than the Ethereum mean block interval of 15 seconds?</p>
+<h4 id="What-is-th-probability-that-the-time-between-two-Bitcoin-blocks-is-smaller-than-the-mean-Etheruem-block-interval?">What is th probability that the time between two Bitcoin blocks is smaller than the mean Etheruem block interval?<a class="anchor-link" href="#What-is-th-probability-that-the-time-between-two-Bitcoin-blocks-is-smaller-than-the-mean-Etheruem-block-interval?">&#182;</a></h4><p>What is the probability that the time between two Bitcoin blocks is less than the Ethereum mean block interval of 15 seconds?</p>
+<p><a id='p2in1'></a></p>
 $$
 \begin{align}
 E_{BTC}(x) &amp;= 600 \\
@@ -14328,7 +14331,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[226]:</div>
+<div class="prompt input_prompt">In&nbsp;[97]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
@@ -14367,7 +14370,7 @@ $$
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>What is the probability that this happens within $ N $ Bitcoin blocks i.e., 
-what is the probability that the time between two Bitcoin blocks is smaller than $ 16 $ seconds during $ N $ total Bitcoin blocks.</p>
+what is the probability that the time between two Bitcoin blocks is smaller than $ 16 $ seconds during $ N $ total Bitcoin blocks?</p>
 $$
 \begin{align}
 P(N) &amp;= 1 - ( 1 - P(X &lt; 15) ) ^ {N-1}
@@ -14455,23 +14458,32 @@ $$
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="What-is-the-probability-that-three-Bitcoin-blocks-are-found-within-the-Ethereum-mean-block-interval-of-15-seconds?">What is the probability that three Bitcoin blocks are found within the Ethereum mean block interval of 15 seconds?<a class="anchor-link" href="#What-is-the-probability-that-three-Bitcoin-blocks-are-found-within-the-Ethereum-mean-block-interval-of-15-seconds?">&#182;</a></h4><p>Poission point process, where the poission distribution parameter $ \Lambda = E(N=n) = \frac{t}{E_{BTC}(x)} $ referres to the expected value of the number of events happening within $ t $ time.
+<h4 id="What-is-the-probability-that-$2,3,...$-Bitcoin-blocks-are-found-within-the-Ethereum-mean-block-interval-of-15-seconds?">What is the probability that $2,3,...$ Bitcoin blocks are found within the Ethereum mean block interval of 15 seconds?<a class="anchor-link" href="#What-is-the-probability-that-$2,3,...$-Bitcoin-blocks-are-found-within-the-Ethereum-mean-block-interval-of-15-seconds?">&#182;</a></h4><p>We use a Poission point process, where the poission distribution parameter $ \Lambda = E(N=n) = \frac{t}{E_{BTC}(x)} $ referres to the expected value of the number of events happening within $ t $ time.
 $$
 \begin{align}
 P(N=n) &amp;= \frac{\Lambda^n}{n!} \cdot e^{-\Lambda} \\
 \lambda &amp;= \frac{1}{E_{BTC}(x)} = 1/600 \\
 \Lambda &amp;= E(N=n) = t/600 \\
-n &amp;= 3 \\
 t &amp;= 15 \\
+n &amp;\in \{1,2,3,...\}
 \end{align}
-$$</p>
+$$
+Note that $ n=1 $ already stands for two sequential Bitcoin blocks since we assume Bitcoin and Ethereum start at the same point in time ($ n = 0 $) with a new block each. So if the first Bitcoin block is found before the mean Ethereum block interval we have it that two Bitcoin blocks have been found without a Ethereum block in between.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What is the probability that <strong>exaclty</strong> $ n $ Bitcoin blocks are found within the mean Etheruem block interval of $15$ seconds?</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[229]:</div>
+<div class="prompt input_prompt">In&nbsp;[128]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">P_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">E_x</span><span class="p">):</span>
@@ -14480,9 +14492,8 @@ $$</p>
     <span class="k">return</span> <span class="n">P_n_within_t</span> 
 
 <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">t</span> <span class="o">=</span> <span class="mi">15</span>
 <span class="n">E_x</span> <span class="o">=</span> <span class="mi">600</span>
-
+<span class="n">t</span> <span class="o">=</span> <span class="mi">15</span>
 <span class="n">P_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">E_x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
 </pre></div>
 
@@ -14496,7 +14507,7 @@ $$</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[229]:</div>
+    <div class="prompt output_prompt">Out[128]:</div>
 
 
 
@@ -14513,10 +14524,16 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[230]:</div>
+<div class="prompt input_prompt">In&nbsp;[124]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">P_n_within_t</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Double check with scipy</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">E_x</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">t</span><span class="o">/</span><span class="n">E_x</span>
+<span class="k">assert</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">mu</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span> <span class="o">==</span> <span class="n">P_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">E_x</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
+
+<span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span> 
 </pre></div>
 
     </div>
@@ -14529,7 +14546,204 @@ $$</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[230]:</div>
+    <div class="prompt output_prompt">Out[124]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.4382747800708318</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[107]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">E_x</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="n">P_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">E_x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[107]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.0304784347508854</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What is the probability that <strong>at least</strong> $ n $ Bitcoin blocks are found within the mean Etheruem block interval of $15$ seconds?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Lets approximate the result first by iterating and adding the next values of $ n $ to get
+the value for at least $ n $ blocks within time $ t $. 
+For $ n = 1 $ this should be approximately the same value as calculated previously for the probability that the time between two Bitcoin blocks is smaller than the Ethereum block intervall of $ 15 $ seconds i.e., $ 2.4690087971667385 \% $</p>
+<p><a href="#p2in1">see here</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">P_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">E_x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">+</span> <span class="n">P_n_within_t</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span> <span class="c1"># ...</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[34]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.4687532148217173</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># approximate the result by iterating and adding the next values of n</span>
+<span class="k">def</span> <span class="nf">P_at_least_n_within_t_approx</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">E_x</span><span class="p">,</span><span class="n">iterations</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="n">iterations</span><span class="p">):</span>
+        <span class="n">p</span> <span class="o">+=</span> <span class="n">P_n_within_t</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">E_x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p</span>
+    
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">E_x</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="n">P_at_least_n_within_t_approx</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">E_x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[61]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.4690087971667327</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">P_at_least_n_within_t_approx</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[62]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.03073401709590147</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">P_n_within_t</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span> <span class="c1"># for comparison</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[59]:</div>
 
 
 
@@ -14546,10 +14760,10 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[231]:</div>
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">P_n_within_t</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">P_at_least_n_within_t_approx</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
 </pre></div>
 
     </div>
@@ -14562,13 +14776,13 @@ $$</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[231]:</div>
+    <div class="prompt output_prompt">Out[63]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.00025398695625737834</pre>
+<pre>0.0002555823450160699</pre>
 </div>
 
 </div>
@@ -14579,10 +14793,10 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[232]:</div>
+<div class="prompt input_prompt">In&nbsp;[64]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">P_n_within_t</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">P_at_least_n_within_t_approx</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
 </pre></div>
 
     </div>
@@ -14595,13 +14809,13 @@ $$</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[232]:</div>
+    <div class="prompt output_prompt">Out[64]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>1.5874184766086147e-06</pre>
+<pre>1.5953887586915409e-06</pre>
 </div>
 
 </div>
@@ -14612,10 +14826,10 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[233]:</div>
+<div class="prompt input_prompt">In&nbsp;[65]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">P_n_within_t</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">P_at_least_n_within_t_approx</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
 </pre></div>
 
     </div>
@@ -14628,13 +14842,436 @@ $$</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[233]:</div>
+    <div class="prompt output_prompt">Out[65]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>7.937092383043074e-09</pre>
+<pre>7.97028208292581e-09</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To accurately capture this case we use the complementary probability of the CDF of the Poisson Distribution.
+We calulate the probability to find at least $ n $ blocks within time $ t $ and expected value $ E[x] $ as mean time between Bitcoin blocks.
+Therefore $ \lambda = t/E[x] $ is the average number of events per interval.
+We calculate the complementary probability for finding at most $ n-1 $ blocks as follows.
+$$
+\begin{align}
+P(X &gt; n) &amp;= 1 - P(X \leq n-1) \\
+P(X \leq n) &amp;= F(x) = e^{-\lambda } \sum_{i=0}^{n-1} \frac{\lambda ^i}{i!}
+\end{align}
+$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[243]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">P_at_least_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">E_x</span><span class="p">):</span>
+    <span class="n">Lambda</span> <span class="o">=</span> <span class="n">t</span><span class="o">/</span><span class="n">E_x</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">):</span> <span class="c1"># is equal to {0,...,n-1} </span>
+        <span class="n">p</span> <span class="o">+=</span> <span class="p">(</span> <span class="n">Lambda</span><span class="o">**</span><span class="n">i</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span> <span class="n">math</span><span class="o">.</span><span class="n">e</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">Lambda</span><span class="p">)</span> <span class="o">*</span> <span class="n">p</span> <span class="p">)</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">E_x</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="n">P_at_least_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">E_x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[243]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.4690087971667385</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[244]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Double check with scipy and complementary probability of cdf(0).</span>
+<span class="c1"># i.e., the complement of the probability that 0 (or less) blocks are found during 15 seconds?</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">E_x</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">t</span><span class="o">/</span><span class="n">E_x</span>
+<span class="k">assert</span> <span class="n">P_at_least_n_within_t</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">E_x</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+
+<span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[244]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.4690087971667385</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[245]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Double check with probability that the time between two Bitcoin blocks is </span>
+<span class="c1"># less than 15 seconds.</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">E_x</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="n">vlambda</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">E_x</span>
+<span class="k">assert</span> <span class="n">P_at_least_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">E_x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">math</span><span class="o">.</span><span class="n">e</span><span class="o">**</span><span class="p">(</span> <span class="o">-</span><span class="n">vlambda</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="p">)</span><span class="o">*</span><span class="mi">100</span>
+<span class="n">P_at_least_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">E_x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[245]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.4690087971667385</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Double check this case by using the continous Erlang distribution.
+We calulate the probability to find at least $ n $ blocks within time $ t $ and expected value $ E[x] $ as mean time between Bitcoin blocks as follows.</p>
+<p>The probability that $ n $ (sometimes denoted $ k $ and refered to as "shape") events happen in time $ x $ when $ \lambda = 1/E[x] $ is the rate at which events happen. $ \mu = 1/\lambda $ is the reciprocal of the rate and sometimes refered to as "scale".</p>
+$$
+\begin{align}
+F(x) &amp;= \begin{cases}
+            1 - e^{-\lambda x} \sum_{i=0}^{n-1} \frac{(\lambda x)^i}{i!}                       &amp; x  \geq 0, \\
+            0                          &amp; x     &lt; 0
+        \end{cases} \\
+\end{align}
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[246]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">P_at_least_n_within_t_erlang</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">E_x</span><span class="p">):</span>
+    <span class="n">Lambda</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">E_x</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">t</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">):</span> <span class="c1"># is equal to {0,...,n-1} </span>
+        <span class="n">p</span> <span class="o">+=</span> <span class="p">(</span> <span class="p">(</span> <span class="n">Lambda</span> <span class="o">*</span> <span class="n">x</span> <span class="p">)</span><span class="o">**</span><span class="n">i</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span> <span class="n">math</span><span class="o">.</span><span class="n">e</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">Lambda</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">p</span> <span class="p">)</span>  
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">E_x</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="k">assert</span> <span class="n">P_at_least_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">E_x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">==</span> <span class="n">P_at_least_n_within_t_erlang</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">E_x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">P_at_least_n_within_t_erlang</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">E_x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[246]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.4690087971667385</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[247]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Double check with scipy</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">E_x</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="k">assert</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">erlang</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">E_x</span><span class="p">))</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">==</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">erlang</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">E_x</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">erlang</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">E_x</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[247]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.469008797166733</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[248]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">E_x</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">erlang</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">E_x</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[248]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.03073401709590146</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[249]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Double check against complement of Poisson cdf</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">E_x</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">t</span><span class="o">/</span><span class="n">E_x</span>
+<span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[249]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.0307340170959014</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[250]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">E_x</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">P_at_least_n_within_t_erlang</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">E_x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[250]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.030734017095912503</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[251]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">E_x</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="n">P_at_least_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">E_x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[251]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.030734017095912503</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[252]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">E_x</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="n">P_at_least_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">E_x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[252]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.0002555823450323125</pre>
 </div>
 
 </div>
@@ -14659,10 +15296,47 @@ $$<p>Recall both chains start at the same moment in time therefore $ n = 1 $ alr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[316]:</div>
+<div class="prompt input_prompt">In&nbsp;[253]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">P_at_leat_n_within_N</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P_at_least_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">))</span>
+<span class="n">P_at_leat_n_within_N</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[253]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>53.9296219001035</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[254]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># for comparision the less accurate value</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">P_n_within_N</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">))</span>
 <span class="n">P_n_within_N</span> <span class="o">*</span> <span class="mi">100</span>
@@ -14678,7 +15352,7 @@ $$<p>Recall both chains start at the same moment in time therefore $ n = 1 $ alr
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[316]:</div>
+    <div class="prompt output_prompt">Out[254]:</div>
 
 
 
@@ -14695,15 +15369,14 @@ $$<p>Recall both chains start at the same moment in time therefore $ n = 1 $ alr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[317]:</div>
+<div class="prompt input_prompt">In&nbsp;[255]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3 Bitcoin blocks within 15 seconds over N total Bitcoin blocks</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">2</span> 
-<span class="n">P_n_within_N</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">))</span>
-<span class="c1">#P_n_within_N = 1 - ( 1 - P_n_within_t(n,15,600) )**(N-1)</span>
-<span class="n">P_n_within_N</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">P_at_leat_n_within_N</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P_at_least_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">))</span>
+<span class="n">P_at_leat_n_within_N</span> <span class="o">*</span> <span class="mi">100</span>
 </pre></div>
 
     </div>
@@ -14716,13 +15389,13 @@ $$<p>Recall both chains start at the same moment in time therefore $ n = 1 $ alr
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[317]:</div>
+    <div class="prompt output_prompt">Out[255]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.48654181796200513</pre>
+<pre>0.49061240186469846</pre>
 </div>
 
 </div>
@@ -14733,14 +15406,50 @@ $$<p>Recall both chains start at the same moment in time therefore $ n = 1 $ alr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[318]:</div>
+<div class="prompt input_prompt">In&nbsp;[256]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3 Bitcoin blocks within 15 seconds over N total Bitcoin blocks</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">2</span> 
+<span class="n">P_at_least_n_within_N</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P_at_least_n_within_t_erlang</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">))</span>
+<span class="n">P_at_least_n_within_N</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[256]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.49061240186469846</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[257]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">P_n_within_N</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">))</span>
-<span class="c1">#P_n_within_N = 1 - ( 1 - P_n_within_t(n,15,600) )**(N-1)</span>
-<span class="n">P_n_within_N</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">P_at_leat_n_within_N</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P_at_least_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">))</span>
+<span class="n">P_at_leat_n_within_N</span> <span class="o">*</span> <span class="mi">100</span>
 </pre></div>
 
     </div>
@@ -14753,13 +15462,13 @@ $$<p>Recall both chains start at the same moment in time therefore $ n = 1 $ alr
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[318]:</div>
+    <div class="prompt output_prompt">Out[257]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.0027938210389266693</pre>
+<pre>0.0028113698683496224</pre>
 </div>
 
 </div>
@@ -14770,14 +15479,13 @@ $$<p>Recall both chains start at the same moment in time therefore $ n = 1 $ alr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[319]:</div>
+<div class="prompt input_prompt">In&nbsp;[258]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">P_n_within_N</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">))</span>
-<span class="c1">#P_n_within_N = 1 - ( 1 - P_n_within_t(n,15,600) )**(N-1)</span>
-<span class="n">P_n_within_N</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">P_at_leat_n_within_N</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P_at_least_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">))</span>
+<span class="n">P_at_leat_n_within_N</span> <span class="o">*</span> <span class="mi">100</span>
 </pre></div>
 
     </div>
@@ -14790,13 +15498,13 @@ $$<p>Recall both chains start at the same moment in time therefore $ n = 1 $ alr
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[319]:</div>
+    <div class="prompt output_prompt">Out[258]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>1.2699347085032286e-05</pre>
+<pre>1.2763109413782558e-05</pre>
 </div>
 
 </div>
@@ -14935,7 +15643,7 @@ The probability that a Bitcoin block arrives before an Ethereum block in an inte
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[240]:</div>
+<div class="prompt input_prompt">In&nbsp;[86]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
@@ -14965,13 +15673,13 @@ The probability that a Bitcoin block arrives before an Ethereum block in an inte
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[ 334.82040657   98.48866468  117.10694774  979.3249223   381.68613555
-  213.16262332 1494.54574484  145.62430221  100.52273262 1083.0214567
- 1040.84797539  134.47683244   33.58833216  310.17790504 1795.16457302
-  540.24428501   35.5675452   395.28718248  716.49966214  285.09280371
-  634.43908995   58.39143455 1016.83027554  220.0061616   716.44827499
-  566.23851566  189.71573345   50.04404744   93.5056638   213.9464349
-  467.13372213  418.80071354]
+<pre>[  83.55043764  374.36835142  766.31137135  332.40800925   26.49866951
+  219.18551738  575.7332083   146.04332719  780.02926848  432.60746517
+ 2167.80195398  513.17896184   35.11800783  800.66710943 1289.29244439
+  385.76045313  186.91829261 2201.86874611  310.95765785 2672.92551806
+ 1359.45496913  772.71681111  263.81065206   22.33187193  922.53126095
+  129.83968102  114.62098642  262.41891004  147.28642542 1322.86686897
+  592.65075632  407.4482972 ]
  lambda       =  0.0016666666666666668
  E(x)  (beta) =  600
  Var(x)       =  360000
@@ -14985,7 +15693,7 @@ The probability that a Bitcoin block arrives before an Ethereum block in an inte
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[241]:</div>
+<div class="prompt input_prompt">In&nbsp;[87]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
@@ -15016,9 +15724,9 @@ The probability that a Bitcoin block arrives before an Ethereum block in an inte
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[ 4.87710658 11.76946003  9.86326727 ... 32.72019613  9.81444816
-  2.57410747]
- len(rand_eth)=  1091
+<pre>[64.81118118  4.50272137 57.48098529 ...  1.56348808  0.940282
+ 12.4108588 ]
+ len(rand_eth)=  1512
  lambda       =  0.06666666666666667
  E(x)  (beta) =  15
  Var(x)       =  225
@@ -15032,7 +15740,7 @@ The probability that a Bitcoin block arrives before an Ethereum block in an inte
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[242]:</div>
+<div class="prompt input_prompt">In&nbsp;[88]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">find_block_in_the_middle</span><span class="p">(</span><span class="n">begin</span><span class="p">,</span><span class="n">end</span><span class="p">,</span><span class="n">input_list</span><span class="p">):</span>
@@ -15111,7 +15819,7 @@ The probability that a Bitcoin block arrives before an Ethereum block in an inte
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[242]:</div>
+    <div class="prompt output_prompt">Out[88]:</div>
 
 
 
@@ -15128,7 +15836,7 @@ The probability that a Bitcoin block arrives before an Ethereum block in an inte
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[243]:</div>
+<div class="prompt input_prompt">In&nbsp;[89]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">simulate_chains</span><span class="p">(</span><span class="n">vbeta_btc</span><span class="p">,</span><span class="n">vbeta_eth</span><span class="p">,</span><span class="n">N_btc</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">sequence</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
@@ -15154,13 +15862,13 @@ The probability that a Bitcoin block arrives before an Ethereum block in an inte
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[243]:</div>
+    <div class="prompt output_prompt">Out[89]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;fail&#39;</pre>
+<pre>&#39;success&#39;</pre>
 </div>
 
 </div>
@@ -15171,7 +15879,7 @@ The probability that a Bitcoin block arrives before an Ethereum block in an inte
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[244]:</div>
+<div class="prompt input_prompt">In&nbsp;[90]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">Counter</span>
@@ -15224,7 +15932,7 @@ success   : 47.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[245]:</div>
+<div class="prompt input_prompt">In&nbsp;[91]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">iterations</span> <span class="o">=</span> <span class="mi">10000</span>
@@ -15248,8 +15956,8 @@ success   : 47.0
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>fail      : 53.16
-success   : 46.839999999999996
+<pre>fail      : 54.26
+success   : 45.739999999999995
 </pre>
 </div>
 </div>
@@ -15260,12 +15968,12 @@ success   : 46.839999999999996
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[322]:</div>
+<div class="prompt input_prompt">In&nbsp;[259]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># compare with calculated approximation</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
-<span class="n">P_within_N_btc</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P_leq_eth</span> <span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">P_within_N_btc</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">math</span><span class="o">.</span><span class="n">e</span><span class="o">**</span><span class="p">(</span> <span class="o">-</span><span class="n">vlambda</span> <span class="o">*</span> <span class="n">x</span><span class="p">))</span> <span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">P_within_N_btc</span> <span class="o">*</span> <span class="mi">100</span>
 </pre></div>
 
@@ -15279,7 +15987,7 @@ success   : 46.839999999999996
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[322]:</div>
+    <div class="prompt output_prompt">Out[259]:</div>
 
 
 
@@ -15296,14 +16004,14 @@ success   : 46.839999999999996
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[321]:</div>
+<div class="prompt input_prompt">In&nbsp;[260]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># compare with other calculated approximation</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">P_n_within_N</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">))</span>
-<span class="n">P_n_within_N</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">P_at_least_n_within_N</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P_at_least_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">))</span>
+<span class="n">P_at_least_n_within_N</span> <span class="o">*</span> <span class="mi">100</span>
 </pre></div>
 
     </div>
@@ -15316,13 +16024,13 @@ success   : 46.839999999999996
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[321]:</div>
+    <div class="prompt output_prompt">Out[260]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>53.47743873583954</pre>
+<pre>53.9296219001035</pre>
 </div>
 
 </div>
@@ -15333,7 +16041,7 @@ success   : 46.839999999999996
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[295]:</div>
+<div class="prompt input_prompt">In&nbsp;[132]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">iterations</span> <span class="o">=</span> <span class="mi">10000</span>
@@ -15357,8 +16065,8 @@ success   : 46.839999999999996
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>success   : 98.42999999999999
-fail      : 1.5699999999999998
+<pre>success   : 98.37
+fail      : 1.63
 </pre>
 </div>
 </div>
@@ -15369,14 +16077,14 @@ fail      : 1.5699999999999998
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[323]:</div>
+<div class="prompt input_prompt">In&nbsp;[261]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># compare with calculated approximation</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">P_n_within_N</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">))</span>
-<span class="n">P_n_within_N</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">P_at_least_n_within_N</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P_at_least_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">))</span>
+<span class="n">P_at_least_n_within_N</span> <span class="o">*</span> <span class="mi">100</span>
 </pre></div>
 
     </div>
@@ -15389,13 +16097,13 @@ fail      : 1.5699999999999998
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[323]:</div>
+    <div class="prompt output_prompt">Out[261]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.48654181796200513</pre>
+<pre>0.49061240186469846</pre>
 </div>
 
 </div>
@@ -15442,14 +16150,14 @@ fail      : 0.08
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[324]:</div>
+<div class="prompt input_prompt">In&nbsp;[262]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">##### compare with calculated approximation</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># compare with calculated approximation</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">P_n_within_N</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">))</span>
-<span class="n">P_n_within_N</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">P_at_least_n_within_N</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P_at_least_n_within_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span> <span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">))</span>
+<span class="n">P_at_least_n_within_N</span> <span class="o">*</span> <span class="mi">100</span>
 </pre></div>
 
     </div>
@@ -15462,13 +16170,13 @@ fail      : 0.08
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[324]:</div>
+    <div class="prompt output_prompt">Out[262]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.0027938210389266693</pre>
+<pre>0.0028113698683496224</pre>
 </div>
 
 </div>
