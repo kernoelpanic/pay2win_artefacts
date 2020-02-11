@@ -1,0 +1,22 @@
+# smart contract related 
+web3 
+py-solc
+#eth-testrpc
+
+## dependencies for interaction with ethereum directly ##
+leveldb
+ethereum # pyethereum 
+
+## other python dependencies ##
+py-ecc
+pytest
+sympy
+ipython
+jupyter
+
+## dev ##
+#pylint
+#rope
+#black
+
+
