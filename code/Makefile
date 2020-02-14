@@ -22,13 +22,15 @@ btcblk:
 
 gas_success:
 	(\
-                ETHPORT=$(ETHPORT) ETHHOST=$(ETHHOST) cd ./client && python -m pytest -s test_client_gas_success.py; \
-                #ETHPORT=$(ETHPORT) ETHHOST=$(ETHHOST) python -m pytest -s test_client.py -k 'test_gas_success' \
-        )
+		#ETHPORT=$(ETHPORT) ETHHOST=$(ETHHOST) PYTEST_ADDOPTS="--blockrange=617000--617022" cd ./client && python -m pytest -s test_client_gas_success.py; \
+	  ETHPORT=$(ETHPORT) ETHHOST=$(ETHHOST) cd ./client && python -m pytest -s test_client_gas_success.py; \
+   	#ETHPORT=$(ETHPORT) ETHHOST=$(ETHHOST) cd ./client && python -m pytest -s --blockrange='617000--617022' test_client_gas_success.py; \
+    #ETHPORT=$(ETHPORT) ETHHOST=$(ETHHOST) python -m pytest -s test_client.py -k 'test_gas_success' \
+	)
 
 gas_fail:
 	(\
 		ETHPORT=$(ETHPORT) ETHHOST=$(ETHHOST) cd ./client && python -m pytest -s test_client_gas_fail.py; \
-                #ETHPORT=$(ETHPORT) ETHHOST=$(ETHHOST) python -m pytest -s test_client.py -k 'test_gas_fail' \
-        )
+    #ETHPORT=$(ETHPORT) ETHHOST=$(ETHHOST) python -m pytest -s test_client.py -k 'test_gas_fail' \
+  )
 

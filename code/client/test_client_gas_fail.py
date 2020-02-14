@@ -5,7 +5,7 @@ import pytest
 
 def test_gas_fail():
     """ Use blocks 300_000 to ... """
-    blks_3K = client.load_input_blocks("../testdata/btc_blocks_json_samples/300000--300015")
+    blks_3K = client.load_input_blocks("../testdata/btc_blocks_json_samples/300000--300022")
 
     b = list()
     for i in range(0,len(blks_3K)):

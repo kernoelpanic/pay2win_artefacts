@@ -909,7 +909,7 @@ class BtcTx:
         assert cb.prev_txhash == CB_TXHASH and cb.prev_txidx == CB_TXIDX, "Invalid tx input values!"
         blk_height_len = cb.script_sig[0]
         blk_height = int.from_bytes(cb.script_sig[1:1+blk_height_len],"little")
-        assert 2 <= len(cb.script_sig) and len(cb.script_sig) < 100, "Invalid coinbase length, must be between 2 and 100 bytes"
+        assert 2 <= len(cb.script_sig) and len(cb.script_sig) <= 100, "Invalid coinbase length, must be between 2 and 100 bytes"
 
         # extract the raw coinbase transaction up to, but not including the coinbase
         assert self.flag is None and self.tx_wit is None, "Only works for non segwit coinbases"

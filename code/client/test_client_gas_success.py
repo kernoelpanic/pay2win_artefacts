@@ -2,22 +2,33 @@ import web3
 import util
 import client
 import pytest
+"""
+@pytest.fixture
+def blockrange(request):
+    return request.config.getoption("--blockrange")
 
+def pytest_addoption(parser):
+    parser.addoption(
+        "--blockrange", action="store", default="617000--617022", help="range of blocks used for tests, default is 617000--617022"
+    )
+"""
+#def test_gas_success(blockrange):
 def test_gas_success():
-    """ Use blocks 300_000 to ... """
-    blks_3K = client.load_input_blocks("../testdata/btc_blocks_json_samples/300000--300022")
+    """ Execute example attack for certain block range ... """
+    blks = client.load_input_blocks("../testdata/btc_blocks_json_samples/617000--617022")
+    #blks = client.load_input_blocks("../testdata/btc_blocks_json_samples/" + str(blockrange))
 
     b = list()
-    for i in range(0,len(blks_3K)):
-        b.append(client.get_input_block_calldata(blks_3K,i))
+    for i in range(0,len(blks)):
+        b.append(client.get_input_block_calldata(blks,i))
 
-    assert len(b) == len(blks_3K)
+    assert len(b) == len(blks)
 
     BLOCK_REWARD=int(12.5*10**18)
     BLOCK_BRIBE=int(1*10**18)
 
 
-    startHeight = 300000
+    startHeight = blks[0]["height"]
     kV = 6
     kB = 6
 
