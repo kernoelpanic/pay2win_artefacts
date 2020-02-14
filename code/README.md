@@ -53,47 +53,47 @@ SUCCESS =  True
 
 Gas stats:
 	deploy  =  6,156,688  gas       11.86  USD
-	init    =  1,364,193  gas        2.63  USD
-	attack  =  7,575,073  gas       14.59  USD
+	init    =  1,364,277  gas        2.63  USD
+	attack  =  8,203,136  gas       15.80  USD
 	payout  =     64,511  gas        0.12  USD
 	--------------------
-	total   = 15,160,465  gas       29.20  USD
+	total   = 15,788,612  gas       30.41  USD
 
-	cblocks =  1,129,139  gas        2.18  USD
+	cblocks =  1,129,235  gas        2.18  USD
 	n_c     =          6  
-	cblock  =    188,190  gas        0.36  USD
+	cblock  =    188,206  gas        0.36  USD
 
-	tblocks =  2,071,520  gas        3.99  USD
+	tblocks =  2,115,593  gas        4.08  USD
 	n_t     =          7
-	tblock  =    295,931  gas        0.57  USD
+	tblock  =    302,228  gas        0.58  USD
 
-	rblocks =  5,503,553  gas       10.60  USD
+	rblocks =  6,087,543  gas       11.73  USD
 	n_r     =         13
-	rblock  =    423,350  gas        0.82  USD
+	rblock  =    468,273  gas        0.90  USD
 
 ...
 
-test_client_gas_fail.py Deployed at:  0x6eD79Aa1c71FD7BdBC515EfdA3Bd4e26394435cC
+test_client_gas_fail.py Deployed at:  0x6AB47d47cF45C4aaA5c7F33c6632390674EfA294
 
 SUCCESS =  False
 
 Gas stats:
 	deploy  =  6,156,688  gas       11.86  USD
-	init    =  1,364,193  gas        2.63  USD
-	attack  =  7,356,844  gas       14.17  USD
+	init    =  1,364,277  gas        2.63  USD
+	attack  =  7,701,821  gas       14.84  USD
 	payout  =     66,949  gas        0.13  USD
 	--------------------
-	total   = 14,944,674  gas       28.79  USD
+	total   = 15,289,735  gas       29.45  USD
 
-	cblocks =  1,129,139  gas        2.18  USD
+	cblocks =  1,129,235  gas        2.18  USD
 	n_c     =          6  
-	cblock  =    188,190  gas        0.36  USD
+	cblock  =    188,206  gas        0.36  USD
 
-	tblocks =  2,071,520  gas        3.99  USD
+	tblocks =  2,115,677  gas        4.08  USD
 	n_t     =          7
-	tblock  =    295,931  gas        0.57  USD
+	tblock  =    302,240  gas        0.58  USD
 
-	rblocks =  5,285,324  gas       10.18  USD
+	rblocks =  5,586,144  gas       10.76  USD
 	n_r     =         16
-	rblock  =    330,333  gas        0.64  USD
+	rblock  =    349,134  gas        0.67  USD
 ```

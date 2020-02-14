@@ -2,22 +2,27 @@ import web3
 import util
 import client
 import pytest
+import os
 
 def test_gas_fail():
-    """ Use blocks 300_000 to ... """
-    blks_3K = client.load_input_blocks("../testdata/btc_blocks_json_samples/300000--300022")
+    """ Execute example attack for certain block range ... """
+    blockrange = os.environ.get('BLOCKRANGE')
+    if blockrange is None:
+        blks = client.load_input_blocks("../testdata/btc_blocks_json_samples/617000--617022")
+    else:
+        blks = client.load_input_blocks("../testdata/btc_blocks_json_samples/" + str(blockrange))
 
     b = list()
-    for i in range(0,len(blks_3K)):
-        b.append(client.get_input_block_calldata(blks_3K,i))
+    for i in range(0,len(blks)):
+        b.append(client.get_input_block_calldata(blks,i))
 
-    assert len(b) == len(blks_3K)
+    assert len(b) == len(blks)
 
     BLOCK_REWARD=int(12.5*10**18)
     BLOCK_BRIBE=int(1*10**18)
 
 
-    startHeight = 300000
+    startHeight = blks[0]["height"]
     kV = 6
     kB = 6
 
