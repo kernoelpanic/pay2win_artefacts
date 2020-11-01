@@ -12,6 +12,18 @@ def test_gas_fail():
     else:
         blks = client.load_input_blocks("../testdata/btc_blocks_json_samples/" + str(blockrange))
 
+    gwei = os.environ.get('GWEI')
+    if gwei is None:
+        gwei = 27*10**9
+    else:
+        gwei = int(gwei)
+
+    exr = os.environ.get('EXR')
+    if exr is None:
+        exr = 389.20
+    else:
+        exr = float(exr)
+
     b = list()
     for i in range(0,len(blks)):
         b.append(client.get_input_block_calldata(blks,i))
@@ -132,5 +144,5 @@ def test_gas_fail():
 
     print()
     print("SUCCESS = ",EMRC.instance.functions._attackSuccessful().call() )
-    EMRC.printGasStats()
+    EMRC.printGasStats(gwei,exr)
 

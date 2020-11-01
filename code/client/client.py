@@ -1434,7 +1434,8 @@ class EMRC:
 
         return True
 
-    def printGasStats(self,gwei=12*10**9,exr=160.53):
+    #def printGasStats(self,gwei=12*10**9,exr=160.53):
+    def printGasStats(self,gwei=27*10**9,exr=389.20):
         # gwei = gasPrice in Gwei
         # exr = exchangeRate 1 ETH -> USD
         print()
