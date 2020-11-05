@@ -13076,7 +13076,7 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[335]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -13099,7 +13099,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[336]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
@@ -13116,7 +13116,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[336]:</div>
+    <div class="prompt output_prompt">Out[23]:</div>
 
 
 
@@ -13174,7 +13174,7 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[337]:</div>
+<div class="prompt input_prompt">In&nbsp;[105]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Attack probability of catching-up k blocks within N total blocks</span>
@@ -13186,6 +13186,7 @@ $$</p>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="o">-</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
         <span class="n">p</span> <span class="o">+=</span> <span class="p">(</span> <span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="o">*</span> <span class="n">omega</span><span class="o">**</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">beta</span><span class="o">**</span><span class="n">i</span>
+        <span class="c1">#print(i,p)</span>
         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">p</span>
 </pre></div>
@@ -13197,7 +13198,7 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[338]:</div>
+<div class="prompt input_prompt">In&nbsp;[106]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">attack_prob</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.2</span><span class="p">),</span><span class="mf">0.512</span><span class="p">)</span>
@@ -13214,7 +13215,7 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[339]:</div>
+<div class="prompt input_prompt">In&nbsp;[107]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">attack_prob</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.2</span><span class="p">)</span>
@@ -13230,7 +13231,7 @@ $$</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[339]:</div>
+    <div class="prompt output_prompt">Out[107]:</div>
 
 
 
@@ -13247,7 +13248,7 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[340]:</div>
+<div class="prompt input_prompt">In&nbsp;[108]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">attack_prob</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
@@ -13263,7 +13264,7 @@ $$</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[340]:</div>
+    <div class="prompt output_prompt">Out[108]:</div>
 
 
 
@@ -13280,31 +13281,10 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[341]:</div>
+<div class="prompt input_prompt">In&nbsp;[109]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get number of required total blocks s.t. attack success probability is met </span>
-<span class="k">def</span> <span class="nf">attack_N</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">omega</span><span class="p">,</span><span class="n">success_prob</span><span class="p">):</span>
-        <span class="n">N</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">prob</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">while</span> <span class="n">prob</span> <span class="o">&lt;</span> <span class="n">success_prob</span><span class="p">:</span>
-            <span class="c1">#prob = probCalc_optimized.compute_prob(k, N, omega,beta=1-omega)</span>
-            <span class="n">prob</span> <span class="o">=</span> <span class="n">attack_prob</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span><span class="n">beta</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">omega</span><span class="p">)</span>
-            <span class="n">N</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">1</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[342]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">attack_N</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mf">0.66</span><span class="p">,</span><span class="mf">0.99</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">attack_prob</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">N</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="mf">0.670</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13317,13 +13297,13 @@ $$</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[342]:</div>
+    <div class="prompt output_prompt">Out[109]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>39</pre>
+<pre>0</pre>
 </div>
 
 </div>
@@ -13334,7 +13314,161 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[343]:</div>
+<div class="prompt input_prompt">In&nbsp;[110]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">attack_prob</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">N</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="mf">0.670</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[110]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.06060711605323003</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[71]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get number of required total blocks s.t. attack success probability is met </span>
+<span class="k">def</span> <span class="nf">attack_N</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">omega</span><span class="p">,</span><span class="n">success_prob</span><span class="p">):</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">prob</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">prob</span> <span class="o">&lt;</span> <span class="n">success_prob</span><span class="p">:</span>
+            <span class="c1">#prob = probCalc_optimized.compute_prob(k, N, omega,beta=1-omega)</span>
+            <span class="n">prob</span> <span class="o">=</span> <span class="n">attack_prob</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span><span class="n">beta</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">omega</span><span class="p">)</span>
+            <span class="n">N</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="c1"># the last N value produces the right prob not the current one, therefore -1</span>
+        <span class="k">return</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[130]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">attack_N</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="mf">0.532</span><span class="p">,</span><span class="n">success_prob</span><span class="o">=</span><span class="mf">0.995</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[130]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>515</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[72]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">attack_N</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="mf">0.67</span><span class="p">,</span><span class="n">success_prob</span><span class="o">=</span><span class="mf">0.995</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[72]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>41</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[129]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">attack_N</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="mf">0.67</span><span class="p">,</span><span class="n">success_prob</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[129]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>265</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[132]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># calculate expected number of blocks in which attack is successful i.e., target sucess probability is reached with this amount of N</span>
@@ -13346,20 +13480,22 @@ $$</p>
     <span class="n">e</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="o">-</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-        <span class="c1"># Current probability:</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="p">(</span> <span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="p">(</span> <span class="n">omega</span> <span class="o">/</span> <span class="p">(</span><span class="n">omega</span> <span class="o">+</span> <span class="n">beta</span><span class="p">)</span> <span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="n">beta</span> <span class="o">/</span> <span class="p">(</span><span class="n">omega</span> <span class="o">+</span> <span class="n">beta</span> <span class="p">)</span> <span class="p">)</span><span class="o">**</span><span class="n">i</span>
-        <span class="c1"># Overall probability:</span>
+        <span class="c1"># Current success probability:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="p">(</span> <span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="o">*</span> <span class="n">omega</span><span class="o">**</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">beta</span><span class="o">**</span><span class="n">i</span>
+        <span class="c1"># Overall target success probability:</span>
         <span class="n">P</span> <span class="o">+=</span> <span class="n">p</span>
         <span class="c1"># Expected value:</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span> <span class="c1"># i+k+1 == y == N  </span>
-        <span class="c1">#print(P,e,y,p)</span>
+        <span class="c1"># y is the real current value of blocks passed</span>
+        <span class="c1"># this is why we need to add k+1 to y </span>
+        <span class="c1"># to account for the k+1 in the formular and the loop condition</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span>
         <span class="k">if</span> <span class="n">math</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-            <span class="c1">#return (P,e)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;p isnan P=&quot;</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="s2">&quot; e=&quot;</span><span class="p">,</span><span class="n">e</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">e</span>
         <span class="n">e</span> <span class="o">+=</span> <span class="n">p</span> <span class="o">*</span> <span class="n">y</span>
+        <span class="c1">#print(P,p,i,y,e)</span>
         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="c1">#return (P,e) </span>
     <span class="k">return</span> <span class="n">e</span>
 </pre></div>
 
@@ -13370,10 +13506,10 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[344]:</div>
+<div class="prompt input_prompt">In&nbsp;[133]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">attack_expected</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">39</span><span class="p">,</span><span class="o">.</span><span class="mi">66</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">attack_expected</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">N</span><span class="o">=</span><span class="mi">41</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="mf">0.670</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -13386,7 +13522,40 @@ $$</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[344]:</div>
+    <div class="prompt output_prompt">Out[133]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>14</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[134]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">attack_expected</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">N</span><span class="o">=</span><span class="mi">265</span><span class="p">,</span><span class="n">omega</span><span class="o">=</span><span class="mf">0.670</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[134]:</div>
 
 
 
@@ -13439,7 +13608,7 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[209]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">catch_up</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">z</span><span class="p">):</span>
@@ -14060,12 +14229,13 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[319]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">6</span>               <span class="c1"># duration of the attack</span>
-<span class="n">reward</span> <span class="o">=</span> <span class="mf">12.5</span>       <span class="c1"># block reward</span>
-<span class="n">fee</span> <span class="o">=</span> <span class="mi">1</span>             <span class="c1"># average fees rounded to 1 (see other notebook) </span>
+<span class="c1">#reward = 12.5       # block reward</span>
+<span class="n">reward</span> <span class="o">=</span> <span class="mf">6.25</span>       <span class="c1"># block reward</span>
+<span class="n">fee</span> <span class="o">=</span> <span class="mi">2</span>             <span class="c1"># average fees rounded to 1 (see other notebook) </span>
 <span class="n">r_b</span> <span class="o">=</span> <span class="n">reward</span> <span class="o">+</span> <span class="n">fee</span>
 <span class="n">epsilon</span> <span class="o">=</span> <span class="mi">1</span>         <span class="c1"># bribe</span>
 <span class="n">c_operational</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># operational costs</span>
@@ -14101,10 +14271,10 @@ $$</p>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>N              =  6
 c_operational  =  0.5
-r_b            =  13.5
+r_b            =  8.25
 epsilon        =  1
-f_B            =  87.5
-c_fail         =  81.5
+f_B            =  56.0
+c_fail         =  50.0
 c_success      =  6.5
 </pre>
 </div>
@@ -14122,21 +14292,33 @@ c_success      =  6.5
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://en.bitcoin.it/wiki/Controlled_supply">https://en.bitcoin.it/wiki/Controlled_supply</a></p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[333]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">6</span>               <span class="c1"># security parameter of victim</span>
 <span class="n">N</span> <span class="o">=</span> <span class="n">k</span><span class="o">+</span><span class="mi">1</span>             <span class="c1"># minimum N </span>
-<span class="n">reward</span> <span class="o">=</span> <span class="mf">12.5</span>       <span class="c1"># block reward</span>
-<span class="n">fee</span> <span class="o">=</span> <span class="mi">1</span>             <span class="c1"># average fees rounded to 1 (see other notebook)  </span>
+<span class="c1">#reward = 12.5       # block reward</span>
+<span class="c1">#fee = 1             # average fees rounded to 1 (see other notebook) </span>
+<span class="n">reward</span> <span class="o">=</span> <span class="mf">6.25</span>       <span class="c1"># block reward</span>
+<span class="c1">#reward = 12.5</span>
+<span class="n">fee</span> <span class="o">=</span> <span class="mi">2</span>             
 <span class="n">r_b</span> <span class="o">=</span> <span class="n">reward</span> <span class="o">+</span> <span class="n">fee</span>
-<span class="n">epsilon</span> <span class="o">=</span> <span class="mi">1</span>         <span class="c1"># bribe</span>
+<span class="n">epsilon</span> <span class="o">=</span> <span class="mi">1</span>         <span class="c1"># bribe per block</span>
 <span class="c1"># epsilon = 0.0002  # min. bribe in BTC (smalest transferable value w.r. to tx fees)</span>
 <span class="n">c_operational</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># operational costs</span>
+<span class="n">exchangerate</span> <span class="o">=</span> <span class="mf">13_077.50</span> 
 
-<span class="n">f_B</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">r_b</span> <span class="o">+</span> <span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">k</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="n">r_b</span> <span class="o">+</span> <span class="n">epsilon</span> <span class="p">)</span>  <span class="o">+</span> <span class="n">c_operational</span> <span class="c1"># required funds of the attacker which are payed in Ethereum</span>
+<span class="n">f_B</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">r_b</span> <span class="o">+</span> <span class="n">N</span> <span class="o">*</span> <span class="p">(</span> <span class="n">r_b</span> <span class="o">+</span> <span class="n">epsilon</span> <span class="p">)</span>  <span class="o">+</span> <span class="n">c_operational</span> <span class="c1"># required funds of the attacker which are payed in Ethereum</span>
 
 <span class="n">c_fail</span> <span class="o">=</span> <span class="n">N</span> <span class="o">*</span> <span class="n">r_b</span> <span class="o">+</span> <span class="n">c_operational</span>
 
@@ -14147,9 +14329,12 @@ c_success      =  6.5
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;c_operational  = &quot;</span><span class="p">,</span><span class="n">c_operational</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;r_b            = &quot;</span><span class="p">,</span><span class="n">r_b</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;epsilon        = &quot;</span><span class="p">,</span><span class="n">epsilon</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;f_B            = &quot;</span><span class="p">,</span><span class="n">f_B</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;c_fail         = &quot;</span><span class="p">,</span><span class="n">c_fail</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;c_success      = &quot;</span><span class="p">,</span><span class="n">c_success</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;f_B            = &quot;</span><span class="p">,</span><span class="n">f_B</span><span class="p">,</span> <span class="s2">&quot; BTC&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;               = &quot;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f_B</span><span class="o">*</span><span class="n">exchangerate</span><span class="p">),</span> <span class="s2">&quot; USD&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;c_fail         = &quot;</span><span class="p">,</span><span class="n">c_fail</span><span class="p">,</span> <span class="s2">&quot; BTC&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;               = &quot;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c_fail</span><span class="o">*</span><span class="n">exchangerate</span><span class="p">),</span> <span class="s2">&quot; USD&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;c_success      = &quot;</span><span class="p">,</span><span class="n">c_success</span><span class="p">,</span> <span class="s2">&quot; BTC&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;               = &quot;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c_success</span><span class="o">*</span><span class="n">exchangerate</span><span class="p">),</span> <span class="s2">&quot; USD&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14169,11 +14354,14 @@ c_success      =  6.5
 <pre>k              =  6
 N              =  7
 c_operational  =  0.5
-r_b            =  13.5
+r_b            =  8.25
 epsilon        =  1
-f_B            =  96.0
-c_fail         =  95.0
-c_success      =  88.5
+f_B            =  114.75  BTC
+               =  1,500,643.125  USD
+c_fail         =  58.25  BTC
+               =  761,764.375  USD
+c_success      =  57.0  BTC
+               =  745,417.5  USD
 </pre>
 </div>
 </div>
@@ -14228,18 +14416,20 @@ c_success      =  88.5
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Table-of-P2W-attack-costs-vs-whale-attack-costs">Table of P2W attack costs vs whale attack costs<a class="anchor-link" href="#Table-of-P2W-attack-costs-vs-whale-attack-costs">&#182;</a></h3>
+<h3 id="Big-Table-of-P2W-attack-costs-vs-whale-attack-costs">Big Table of P2W attack costs vs whale attack costs<a class="anchor-link" href="#Big-Table-of-P2W-attack-costs-vs-whale-attack-costs">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[349]:</div>
+<div class="prompt input_prompt">In&nbsp;[155]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">bribe_per_block</span><span class="o">=</span><span class="mi">1</span>     <span class="c1"># additional bribe epsilon </span>
-<span class="n">block_reward</span><span class="o">=</span><span class="mf">12.5</span>     <span class="c1"># current block reward</span>
-<span class="n">block_fees_average</span><span class="o">=</span><span class="mi">1</span>  <span class="c1"># current average fees per block</span>
+<span class="n">block_reward</span><span class="o">=</span><span class="mf">6.25</span>     <span class="c1"># current block reward</span>
+<span class="c1">#block_reward=12.5     # current block reward</span>
+<span class="c1">#block_reward=25     # current block reward</span>
+<span class="n">block_fees_average</span><span class="o">=</span><span class="mi">2</span>  <span class="c1"># current average fees per block</span>
 <span class="n">operational_costs</span><span class="o">=</span><span class="mf">0.5</span>
 
 <span class="n">block_total</span><span class="o">=</span> <span class="n">block_reward</span> <span class="o">+</span> <span class="n">block_fees_average</span>
@@ -14287,13 +14477,8 @@ c_success      =  88.5
     <span class="n">omega</span><span class="o">=</span><span class="n">whale</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">k</span><span class="o">=</span><span class="n">whale</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">whale_costs</span><span class="o">=</span><span class="n">whale</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    
-    <span class="k">while</span> <span class="n">prob</span> <span class="o">&lt;</span> <span class="n">success_prob</span><span class="p">:</span>
-        <span class="n">prob</span> <span class="o">=</span> <span class="n">attack_prob</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span><span class="n">beta</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">omega</span><span class="p">)</span>
-        <span class="n">N</span> <span class="o">+=</span> <span class="mi">1</span>
-    
-    <span class="c1"># the last N value produces the right prob not the current one, therefore -1</span>
-    <span class="n">N</span> <span class="o">-=</span> <span class="mi">1</span> 
+      
+    <span class="n">N</span> <span class="o">=</span> <span class="n">attack_N</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">omega</span><span class="p">,</span><span class="n">success_prob</span><span class="p">)</span>
      
     <span class="c1"># costs of failed attack</span>
     <span class="n">c_p2w_fail</span> <span class="o">=</span> <span class="n">N</span> <span class="o">*</span> <span class="n">block_total</span> <span class="o">+</span> <span class="n">operational_costs</span> 
@@ -14302,7 +14487,7 @@ c_success      =  88.5
     <span class="n">c_p2w_succ</span> <span class="o">=</span> <span class="n">N</span><span class="o">*</span><span class="n">bribe_per_block</span> <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="n">block_total</span> <span class="o">+</span> <span class="n">operational_costs</span>
     
     <span class="c1"># calculated number of expected blocks </span>
-    <span class="n">expected</span> <span class="o">=</span> <span class="n">attack_expected</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">omega</span><span class="p">,</span><span class="n">beta</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">omega</span><span class="p">)</span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">attack_expected</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">omega</span><span class="p">,</span><span class="n">beta</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">omega</span><span class="p">))</span>
     <span class="n">c_p2w_exp</span> <span class="o">=</span> <span class="n">expected</span><span class="o">*</span><span class="n">bribe_per_block</span> <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="n">block_total</span> <span class="o">+</span> <span class="n">operational_costs</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    print(&quot;omega = {:.3f}  prob = {:.3f} N = {:3.0f} c_p2w_succ = {:.8f} c_p2w_fail = {:.8f} bribe_per_block = {:2.0f}&quot;.format(omega,</span>
@@ -14325,11 +14510,9 @@ c_success      =  88.5
     <span class="n">N</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">prob</span> <span class="o">=</span> <span class="mi">0</span>
     
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">\end</span><span class="si">{tabular}</span><span class="s2"></span>
-<span class="s2">\caption{Comparison of attack costs whale attack~\cite</span><span class="si">{liao2017incentivizing}</span><span class="s2"> against our attack for $ k = 6 $ and a success probability of $ 99.4\% $. For the calculations we set $ r_b = 15 $ and defined the additional bribing value $ \epsilon = 1 $ to account for all operational costs. }</span>
-<span class="s2">\end</span><span class="si">{table}</span><span class="s2"></span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;\end</span><span class="si">{tabular}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">caption{{Comparison of attack costs whale attack~\cite{{liao2017incentivizing}} for $ k_V = </span><span class="si">{:d}</span><span class="s2"> $, all costs given in BTC. For comparision different Bitcoin block reward epochs (12.5 and 6.25 BTC) are provided for our P2W attack, all with $ c_{{operational}} = </span><span class="si">{:.1f}</span><span class="s2"> $ BTC, and average fee per block of </span><span class="si">{:.0f}</span><span class="s2"> BTC and $ \epsilon = </span><span class="si">{:.0f}</span><span class="s2"> $ BTC.}}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">operational_costs</span><span class="p">,</span><span class="n">block_fees_average</span><span class="p">,</span><span class="n">bribe_per_block</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;\end</span><span class="si">{table}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14354,19 +14537,154 @@ c_success      =  88.5
 
 $\omega$  	&amp; whale costs 	&amp; \makecell{p2w costs\\ fail} 	&amp; \% whale 	&amp; \makecell{p2w costs\\ success} 	&amp; \% whale 	&amp; \makecell{p2w costs\\ expected}  &amp; \% whale &amp; \makecell{N\\ (w.c.)}	&amp; \makecell{N\\ (exp.)} \\
 \hline
-0.532 		&amp; 293000000000000014680064.00 	&amp; 6953 		&amp; 596 		&amp; 0.00 		&amp; 515 		&amp; 136 		&amp; 0.00 	&amp; 55 \\
-0.670 		&amp; 999.79 	&amp; 554 		&amp; 122 		&amp; 12.25 		&amp; 41 		&amp; 95 		&amp; 9.51 	&amp; 14 \\
-0.764 		&amp; 768.09 	&amp; 298 		&amp; 104 		&amp; 13.47 		&amp; 22 		&amp; 92 		&amp; 11.92 	&amp; 10 \\
-0.828 		&amp; 1265.14 	&amp; 216 		&amp; 98 		&amp; 7.71 		&amp; 16 		&amp; 90 		&amp; 7.13 	&amp;  9 \\
-0.887 		&amp; 1205.00 	&amp; 176 		&amp; 94 		&amp; 7.84 		&amp; 13 		&amp; 89 		&amp; 7.43 	&amp;  8 \\
-0.931 		&amp; 1806.67 	&amp; 149 		&amp; 92 		&amp; 5.12 		&amp; 11 		&amp; 89 		&amp; 4.93 	&amp;  8 \\
-0.968 		&amp; 2178.58 	&amp; 122 		&amp; 90 		&amp; 4.15 		&amp;  9 		&amp; 89 		&amp; 4.07 	&amp;  7 \\
-0.999 		&amp; 2598.64 	&amp; 108 		&amp; 90 		&amp; 3.44 		&amp;  8 		&amp; 89 		&amp; 3.41 	&amp;  7 \\
-
+0.532 		&amp; 293000000000000014680064.00 	&amp; 4249 		&amp; 565 		&amp; 0.00 		&amp; 515 		&amp; 105 		&amp; 0.00 	&amp; 55 \\
+0.670 		&amp; 999.79 	&amp; 339 		&amp; 91 		&amp; 9.10 		&amp; 41 		&amp; 64 		&amp; 6.40 	&amp; 14 \\
+0.764 		&amp; 768.09 	&amp; 182 		&amp; 72 		&amp; 9.37 		&amp; 22 		&amp; 61 		&amp; 7.94 	&amp; 11 \\
+0.828 		&amp; 1265.14 	&amp; 132 		&amp; 66 		&amp; 5.22 		&amp; 16 		&amp; 59 		&amp; 4.66 	&amp;  9 \\
+0.887 		&amp; 1205.00 	&amp; 108 		&amp; 63 		&amp; 5.23 		&amp; 13 		&amp; 58 		&amp; 4.81 	&amp;  8 \\
+0.931 		&amp; 1806.67 	&amp; 91 		&amp; 61 		&amp; 3.38 		&amp; 11 		&amp; 58 		&amp; 3.21 	&amp;  8 \\
+0.968 		&amp; 2178.58 	&amp; 75 		&amp; 59 		&amp; 2.71 		&amp;  9 		&amp; 58 		&amp; 2.66 	&amp;  8 \\
+0.999 		&amp; 2598.64 	&amp; 66 		&amp; 58 		&amp; 2.23 		&amp;  8 		&amp; 58 		&amp; 2.23 	&amp;  8 \\
 \end{tabular}
-\caption{Comparison of attack costs whale attack~\cite{liao2017incentivizing} against our attack for $ k = 6 $ and a success probability of $ 99.4\% $. For the calculations we set $ r_b = 15 $ and defined the additional bribing value $ \epsilon = 1 $ to account for all operational costs. }
+\caption{Comparison of attack costs whale attack~\cite{liao2017incentivizing} for $ k_V = 6 $, all costs given in BTC. For comparision different Bitcoin block reward epochs (12.5 and 6.25 BTC) are provided for our P2W attack, all with $ c_{operational} = 0.5 $ BTC, and average fee per block of 2 BTC and $ \epsilon = 1 $ BTC.}
 \end{table}
+</pre>
+</div>
+</div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Small-Table-of-P2W-attack-costs-vs-whale-attack-costs">Small Table of P2W attack costs vs whale attack costs<a class="anchor-link" href="#Small-Table-of-P2W-attack-costs-vs-whale-attack-costs">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[166]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bribe_per_block</span><span class="o">=</span><span class="mi">1</span>     <span class="c1"># additional bribe epsilon     </span>
+<span class="n">block_fees_average</span><span class="o">=</span><span class="mi">2</span>  <span class="c1"># current average fees per block  </span>
+<span class="n">operational_costs</span><span class="o">=</span><span class="mf">0.5</span> <span class="c1"># operational costs of attack</span>
+<span class="n">success_prob</span> <span class="o">=</span> <span class="mf">0.9950</span> <span class="c1"># success_prob = 0.99510916 </span>
+
+<span class="c1"># current block reward epoch</span>
+<span class="n">block_total_6</span><span class="o">=</span> <span class="mf">6.25</span> <span class="o">+</span> <span class="n">block_fees_average</span>
+<span class="n">block_total_6_plus_bribe</span> <span class="o">=</span> <span class="n">block_total_6</span> <span class="o">+</span> <span class="n">bribe_per_block</span>
+
+<span class="c1"># previous block reward epoch</span>
+<span class="n">block_total_12</span><span class="o">=</span> <span class="mf">12.5</span> <span class="o">+</span> <span class="n">block_fees_average</span>
+<span class="n">block_total_12_plus_bribe</span> <span class="o">=</span> <span class="n">block_total_12</span> <span class="o">+</span> <span class="n">bribe_per_block</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="se">\\</span><span class="s2">begin{table*}[]</span>
+<span class="se">\\</span><span class="s2">centering</span>
+<span class="se">\\</span><span class="s2">scriptsize</span>
+<span class="se">\\</span><span class="s2">label{tab:costs}</span>
+<span class="se">\\</span><span class="s2">begin</span><span class="si">{tabular}</span><span class="s2">{c|c||c|c|c||c}</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">\makecell{Rational hashrate </span><span class="se">\\\\</span><span class="s2"> $</span><span class="se">\\</span><span class="s2">omega$}  &amp; </span>
+<span class="s2">\makecell{Average whale attack costs </span><span class="se">\\\\</span><span class="s2"> epoch reward $ 12.5 $ </span><span class="se">\\\\</span><span class="s2"> $ c_</span><span class="si">{whale}</span><span class="s2"> $ in BTC} &amp; </span>
+<span class="s2">\makecell{P2W </span><span class="se">\\\\</span><span class="s2"> epoch reward $ 12.5 $ </span><span class="se">\\\\</span><span class="s2"> $ c_</span><span class="si">{expected}</span><span class="s2"> $ in BTC} &amp;</span>
+<span class="s2">\makecell{P2W cost </span><span class="se">\\\\</span><span class="s2"> compared to whale } &amp;</span>
+<span class="s2">\makecell{P2W </span><span class="se">\\\\</span><span class="s2"> $ N $ </span><span class="se">\\\\</span><span class="s2"> expected} &amp;</span>
+<span class="s2">\makecell{P2W </span><span class="se">\\\\</span><span class="s2"> epoch reward $ 6.25 $ </span><span class="se">\\\\</span><span class="s2"> $ c_</span><span class="si">{expected}</span><span class="s2"> $ in BTC} </span><span class="se">\\\\</span><span class="s2"></span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">hline&quot;</span><span class="p">)</span>
+
+<span class="c1"># data from https://www.cs.umd.edu/~jkatz/papers/whale-txs.pdf</span>
+<span class="c1"># (omega,k,BTC)</span>
+<span class="n">whale_omega_k_costs</span> <span class="o">=</span> <span class="p">[</span>  <span class="p">(</span><span class="mf">0.532</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">2.93e+23</span><span class="p">),</span>
+                         <span class="p">(</span><span class="mf">0.670</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">999.79</span><span class="p">),</span> 
+                         <span class="p">(</span><span class="mf">0.764</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">768.09</span><span class="p">),</span> 
+                         <span class="p">(</span><span class="mf">0.828</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">1265.14</span><span class="p">),</span> 
+                         <span class="p">(</span><span class="mf">0.887</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">1205.00</span><span class="p">),</span>
+                         <span class="p">(</span><span class="mf">0.931</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">1806.67</span><span class="p">),</span>
+                         <span class="p">(</span><span class="mf">0.968</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">2178.58</span><span class="p">),</span> 
+                         <span class="p">(</span><span class="mf">0.999</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">2598.64</span><span class="p">)</span> <span class="p">]</span>
+
+<span class="k">for</span> <span class="n">whale</span> <span class="ow">in</span> <span class="n">whale_omega_k_costs</span><span class="p">:</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">prob</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">omega</span><span class="o">=</span><span class="n">whale</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">k</span><span class="o">=</span><span class="n">whale</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">whale_costs</span><span class="o">=</span><span class="n">whale</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+      
+    <span class="c1"># calculate number of required block to reach target success_probability (close to one)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">attack_N</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">omega</span><span class="p">,</span><span class="n">success_prob</span><span class="p">)</span>
+       
+    <span class="c1"># calculated number of expected blocks </span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">attack_expected</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">omega</span><span class="p">,</span><span class="n">beta</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">omega</span><span class="p">))</span>
+    
+    <span class="c1"># costs for block reward epoch 12.5</span>
+    <span class="n">c_p2w_exp_12</span> <span class="o">=</span> <span class="n">expected</span><span class="o">*</span><span class="n">bribe_per_block</span> <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="n">block_total_12</span> <span class="o">+</span> <span class="n">operational_costs</span>
+    
+    <span class="c1"># costs for block reward epoch 6.25</span>
+    <span class="n">c_p2w_exp_6</span> <span class="o">=</span> <span class="n">expected</span><span class="o">*</span><span class="n">bribe_per_block</span> <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="n">block_total_6</span> <span class="o">+</span> <span class="n">operational_costs</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.3f}</span><span class="s2"> </span><span class="se">\t\t</span><span class="s2">&amp; </span><span class="si">{:.2f}</span><span class="s2"> </span><span class="se">\t</span><span class="s2">&amp; </span><span class="si">{:.2f}</span><span class="s2"> </span><span class="se">\t\t</span><span class="s2">&amp; </span><span class="si">{:.2f}</span><span class="s2">\% </span><span class="se">\t\t</span><span class="s2">&amp; </span><span class="si">{:d}</span><span class="s2"> </span><span class="se">\t\t</span><span class="s2">&amp; </span><span class="si">{:.2f}</span><span class="s2"> </span><span class="se">\\\\</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                                                                <span class="n">omega</span><span class="p">,</span> 
+                                                                <span class="n">whale_costs</span><span class="p">,</span>
+                                                                <span class="n">c_p2w_exp_12</span><span class="p">,</span>  
+                                                                <span class="p">(</span><span class="n">c_p2w_exp_12</span><span class="o">/</span><span class="n">whale_costs</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span>
+                                                                <span class="n">expected</span><span class="p">,</span>
+                                                                <span class="n">c_p2w_exp_6</span><span class="p">)</span> <span class="p">)</span> 
+    
+    <span class="n">N</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">prob</span> <span class="o">=</span> <span class="mi">0</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;\end</span><span class="si">{tabular}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">caption{{Comparison of attack costs for $ k_V = </span><span class="si">{:d}</span><span class="s2"> $, all costs given in BTC.  The costs for the whale attack are the average from $ 10^6 $ simulation results provided in~\cite{{liao2017incentivizing}}. For comparision different Bitcoin block reward epochs (12.5 and 6.25 BTC) are provided for our P2W attack, all with $ c_{{operational}} = </span><span class="si">{:.1f}</span><span class="s2"> $ BTC, and average fee per block of </span><span class="si">{:.0f}</span><span class="s2"> BTC and $ \epsilon = </span><span class="si">{:.0f}</span><span class="s2"> $ BTC.}}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">operational_costs</span><span class="p">,</span><span class="n">block_fees_average</span><span class="p">,</span><span class="n">bribe_per_block</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;\end{table*}&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+\begin{table*}[]
+\centering
+\scriptsize
+\label{tab:costs}
+\begin{tabular}{c|c||c|c|c||c}
+
+
+\makecell{Rational hashrate \\ $\omega$}  &amp; 
+\makecell{Average whale attack costs \\ epoch reward $ 12.5 $ \\ $ c_{whale} $ in BTC} &amp; 
+\makecell{P2W \\ epoch reward $ 12.5 $ \\ $ c_{expected} $ in BTC} &amp;
+\makecell{P2W cost \\ compared to whale } &amp;
+\makecell{P2W \\ $ N $ \\ expected} &amp;
+\makecell{P2W \\ epoch reward $ 6.25 $ \\ $ c_{expected} $ in BTC} \\
+
+\hline
+0.532 		&amp; 293000000000000014680064.00 	&amp; 142.50 		&amp; 0.00\% 		&amp; 55 		&amp; 105.00 \\
+0.670 		&amp; 999.79 	&amp; 101.50 		&amp; 10.15\% 		&amp; 14 		&amp; 64.00 \\
+0.764 		&amp; 768.09 	&amp; 98.50 		&amp; 12.82\% 		&amp; 11 		&amp; 61.00 \\
+0.828 		&amp; 1265.14 	&amp; 96.50 		&amp; 7.63\% 		&amp; 9 		&amp; 59.00 \\
+0.887 		&amp; 1205.00 	&amp; 95.50 		&amp; 7.93\% 		&amp; 8 		&amp; 58.00 \\
+0.931 		&amp; 1806.67 	&amp; 95.50 		&amp; 5.29\% 		&amp; 8 		&amp; 58.00 \\
+0.968 		&amp; 2178.58 	&amp; 95.50 		&amp; 4.38\% 		&amp; 8 		&amp; 58.00 \\
+0.999 		&amp; 2598.64 	&amp; 95.50 		&amp; 3.67\% 		&amp; 8 		&amp; 58.00 \\
+\end{tabular}
+\caption{Comparison of attack costs for $ k_V = 6 $, all costs given in BTC.  The costs for the whale attack are the average from $ 10^6 $ simulation results provided in~\cite{liao2017incentivizing}. For comparision different Bitcoin block reward epochs (12.5 and 6.25 BTC) are provided for our P2W attack, all with $ c_{operational} = 0.5 $ BTC, and average fee per block of 2 BTC and $ \epsilon = 1 $ BTC.}
+\end{table*}
 </pre>
 </div>
 </div>

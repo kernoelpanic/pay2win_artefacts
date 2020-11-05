@@ -13092,7 +13092,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[74]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -13101,6 +13101,7 @@ div#notebook {
 <span class="kn">import</span> <span class="nn">scipy.stats</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">math</span>
 </pre></div>
 
     </div>
@@ -13493,7 +13494,7 @@ $        12,921,474.08 USD
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Transaction-feeds-per-day-in-USD">Transaction feeds per day in USD<a class="anchor-link" href="#Transaction-feeds-per-day-in-USD">&#182;</a></h2><blockquote><p>The total value of all transaction fees paid to miners (not including the coinbase value of block rewards).</p>
+<h2 id="Transaction-fees-per-day-in-USD">Transaction fees per day in USD<a class="anchor-link" href="#Transaction-fees-per-day-in-USD">&#182;</a></h2><blockquote><p>The total value of all transaction fees paid to miners (not including the coinbase value of block rewards).</p>
 </blockquote>
 <p><a href="https://www.blockchain.com/charts/transaction-fees-usd?timespan=1year">https://www.blockchain.com/charts/transaction-fees-usd?timespan=1year</a></p>
 
@@ -13502,7 +13503,7 @@ $        12,921,474.08 USD
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>wget -O <span class="s2">&quot;transaction-fees-usd.csv&quot;</span>  <span class="s2">&quot;https://api.blockchain.info/charts/transaction-fees-usd?timespan=1year&amp;format=csv&quot;</span>
@@ -13522,16 +13523,16 @@ $        12,921,474.08 USD
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>--2019-10-15 16:13:50--  https://api.blockchain.info/charts/transaction-fees-usd?timespan=1year&amp;format=csv
+<pre>--2020-11-01 20:04:11--  https://api.blockchain.info/charts/transaction-fees-usd?timespan=1year&amp;format=csv
 Resolving api.blockchain.info (api.blockchain.info)... 104.16.54.3, 104.16.55.3
 Connecting to api.blockchain.info (api.blockchain.info)|104.16.54.3|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: unspecified [text/csv]
 Saving to: ‘transaction-fees-usd.csv’
 
-transaction-fees-us     [ &lt;=&gt;                ]  13.68K  --.-KB/s    in 0.001s  
+transaction-fees-us     [ &lt;=&gt;                ]  13.14K  --.-KB/s    in 0.001s  
 
-2019-10-15 16:13:50 (12.6 MB/s) - ‘transaction-fees-usd.csv’ saved [14006]
+2020-11-01 20:04:11 (9.18 MB/s) - ‘transaction-fees-usd.csv’ saved [13458]
 
 </pre>
 </div>
@@ -13543,7 +13544,7 @@ transaction-fees-us     [ &lt;=&gt;                ]  13.68K  --.-KB/s    in 0.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_rev</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;transaction-fees-usd.csv&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
@@ -13572,7 +13573,7 @@ transaction-fees-us     [ &lt;=&gt;                ]  13.68K  --.-KB/s    in 0.0
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[30]:</div>
+    <div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -13602,28 +13603,28 @@ transaction-fees-us     [ &lt;=&gt;                ]  13.68K  --.-KB/s    in 0.0
   <tbody>
     <tr>
       <td>0</td>
-      <td>2018-10-15 00:00:00</td>
-      <td>149028.726265063916798681020736694335937500</td>
+      <td>2019-11-02 00:00:00</td>
+      <td>257824.3645515299867838621139526367187500</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>2018-10-16 00:00:00</td>
-      <td>127442.884688540390925481915473937988281250</td>
+      <td>2019-11-03 00:00:00</td>
+      <td>241157.7438360649975948035717010498046875</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>2018-10-17 00:00:00</td>
-      <td>124340.335180975103867240250110626220703125</td>
+      <td>2019-11-04 00:00:00</td>
+      <td>448652.6724390489980578422546386718750000</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>2018-10-18 00:00:00</td>
-      <td>118613.966910766539513133466243743896484375</td>
+      <td>2019-11-05 00:00:00</td>
+      <td>409189.5960616800002753734588623046875000</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>2018-10-19 00:00:00</td>
-      <td>114560.234214190510101616382598876953125000</td>
+      <td>2019-11-06 00:00:00</td>
+      <td>361228.7634430049802176654338836669921875</td>
     </tr>
   </tbody>
 </table>
@@ -13638,7 +13639,7 @@ transaction-fees-us     [ &lt;=&gt;                ]  13.68K  --.-KB/s    in 0.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">min_fee</span> <span class="o">=</span> <span class="n">df_rev</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
@@ -13666,13 +13667,13 @@ transaction-fees-us     [ &lt;=&gt;                ]  13.68K  --.-KB/s    in 0.0
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Min:
-฿      42,133.14971120 BTC
+฿      71,819.53588182 BTC
 Max:
-฿   2,368,023.05355289 BTC
+฿   3,627,758.72096008 BTC
 Median:
-฿     227,726.85373094 BTC
+฿     343,583.95117743 BTC
 Mean:
-฿     403,648.86033257 BTC
+฿     590,117.66528965 BTC
 </pre>
 </div>
 </div>
@@ -14043,16 +14044,16 @@ Mean:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>--2019-10-15 15:41:24--  https://api.blockchain.info/charts/transaction-fees?timespan=1year&amp;format=csv
-Resolving api.blockchain.info (api.blockchain.info)... 104.16.54.3, 104.16.55.3
-Connecting to api.blockchain.info (api.blockchain.info)|104.16.54.3|:443... connected.
+<pre>--2020-11-01 20:05:25--  https://api.blockchain.info/charts/transaction-fees?timespan=1year&amp;format=csv
+Resolving api.blockchain.info (api.blockchain.info)... 104.16.55.3, 104.16.54.3
+Connecting to api.blockchain.info (api.blockchain.info)|104.16.55.3|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: unspecified [text/csv]
 Saving to: ‘transaction-fees.csv’
 
-transaction-fees.cs     [ &lt;=&gt;                ]  13.28K  --.-KB/s    in 0.001s  
+transaction-fees.cs     [ &lt;=&gt;                ]  11.79K  --.-KB/s    in 0.001s  
 
-2019-10-15 15:41:24 (14.0 MB/s) - ‘transaction-fees.csv’ saved [13597]
+2020-11-01 20:05:25 (15.9 MB/s) - ‘transaction-fees.csv’ saved [12074]
 
 </pre>
 </div>
@@ -14064,7 +14065,7 @@ transaction-fees.cs     [ &lt;=&gt;                ]  13.28K  --.-KB/s    in 0.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[92]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_rev</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;transaction-fees.csv&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
@@ -14093,7 +14094,7 @@ transaction-fees.cs     [ &lt;=&gt;                ]  13.28K  --.-KB/s    in 0.0
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[92]:</div>
+    <div class="prompt output_prompt">Out[7]:</div>
 
 
 
@@ -14123,28 +14124,28 @@ transaction-fees.cs     [ &lt;=&gt;                ]  13.28K  --.-KB/s    in 0.0
   <tbody>
     <tr>
       <td>0</td>
-      <td>2018-10-15 00:00:00</td>
-      <td>23.0960203100000036613437259802594780921936035...</td>
+      <td>2019-11-02 00:00:00</td>
+      <td>27.6902494200000006685513653792440891265869140...</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>2018-10-16 00:00:00</td>
-      <td>19.3194267500000016468675312353298068046569824...</td>
+      <td>2019-11-03 00:00:00</td>
+      <td>26.0661656000000014898887457093223929405212402...</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>2018-10-17 00:00:00</td>
-      <td>18.8500802999999876874426263384521007537841796...</td>
+      <td>2019-11-04 00:00:00</td>
+      <td>48.2878517600000023435313778463751077651977539...</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>2018-10-18 00:00:00</td>
-      <td>18.0592616700000014873239706503227353096008300...</td>
+      <td>2019-11-05 00:00:00</td>
+      <td>43.7323248200000023189204512163996696472167968...</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>2018-10-19 00:00:00</td>
-      <td>17.6587622599999995998132362728938460350036621...</td>
+      <td>2019-11-06 00:00:00</td>
+      <td>38.6653984200000024884502636268734931945800781...</td>
     </tr>
   </tbody>
 </table>
@@ -14159,7 +14160,7 @@ transaction-fees.cs     [ &lt;=&gt;                ]  13.28K  --.-KB/s    in 0.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[95]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">min_revenue</span> <span class="o">=</span> <span class="n">df_rev</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
@@ -14189,15 +14190,15 @@ transaction-fees.cs     [ &lt;=&gt;                ]  13.28K  --.-KB/s    in 0.0
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Min:
-฿          11.22870449 BTC
+฿           9.97099973 BTC
 Max:
-฿         228.51579452 BTC
+฿         264.03799985 BTC
 Median:
-฿          34.64137449 BTC
+฿          39.73640604 BTC
 Mean:
-฿          53.60362910 BTC
+฿          58.50901483 BTC
 Std. deviation:
-฿          46.12188263 BTC
+฿          47.02092264 BTC
 </pre>
 </div>
 </div>
@@ -14208,7 +14209,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[96]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean_block_interval</span> <span class="o">=</span> <span class="mi">60</span><span class="o">*</span><span class="mi">10</span>
@@ -14225,7 +14226,7 @@ Std. deviation:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[96]:</div>
+    <div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -14242,7 +14243,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[97]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">seconds_per_day</span> <span class="o">=</span> <span class="mi">60</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="mi">24</span>
@@ -14259,7 +14260,7 @@ Std. deviation:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[97]:</div>
+    <div class="prompt output_prompt">Out[10]:</div>
 
 
 
@@ -14276,7 +14277,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[98]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean_revenue</span>
@@ -14292,13 +14293,13 @@ Std. deviation:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[98]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>53.60362909619178</pre>
+<pre>58.50901482731508</pre>
 </div>
 
 </div>
@@ -14317,7 +14318,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[116]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean_blocks_per_day</span> <span class="o">=</span> <span class="n">seconds_per_day</span> <span class="o">/</span> <span class="n">mean_block_interval</span>
@@ -14334,7 +14335,7 @@ Std. deviation:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[116]:</div>
+    <div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -14351,7 +14352,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[100]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean_fee_per_block</span> <span class="o">=</span> <span class="n">mean_revenue</span> <span class="o">/</span> <span class="n">mean_blocks_per_day</span> 
@@ -14373,7 +14374,7 @@ Std. deviation:
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Mean fee per block (derived by mean fee per day over the last year):
-฿           0.37224742 BTC
+฿           0.40631260 BTC
 </pre>
 </div>
 </div>
@@ -14392,7 +14393,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[101]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">60</span><span class="o">*</span><span class="mi">24</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
@@ -14408,7 +14409,7 @@ Std. deviation:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[101]:</div>
+    <div class="prompt output_prompt">Out[16]:</div>
 
 
 
@@ -14425,7 +14426,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[102]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span><span class="o">=</span><span class="mi">0</span>
@@ -14664,7 +14665,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[103]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># check if values look ok</span>
@@ -14718,7 +14719,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[108]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean_fee_per_block</span> <span class="o">=</span> <span class="p">(</span><span class="n">mean_revenue</span><span class="o">+</span><span class="n">std_revenue</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">mean_blocks_per_day</span><span class="o">-</span><span class="mi">12</span> <span class="p">)</span>
@@ -14740,7 +14741,7 @@ Std. deviation:
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Change in fee accounting for std. deviation of blocks:
-฿           0.75549630 BTC
+฿           0.79946922 BTC
 </pre>
 </div>
 </div>
@@ -14751,7 +14752,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[109]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean_fee_per_block</span> <span class="o">=</span> <span class="p">(</span><span class="n">mean_revenue</span><span class="o">+</span><span class="n">std_revenue</span><span class="p">)</span> <span class="o">/</span> <span class="n">mean_blocks_per_day</span> 
@@ -14773,7 +14774,7 @@ Std. deviation:
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Mean fee per block (derived by mean fee per day over the last year):
-฿           0.69253828 BTC
+฿           0.73284679 BTC
 </pre>
 </div>
 </div>
@@ -14784,7 +14785,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[110]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean_fee_per_block</span> <span class="o">=</span> <span class="p">(</span><span class="n">mean_revenue</span><span class="o">+</span><span class="n">std_revenue</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">mean_blocks_per_day</span><span class="o">+</span><span class="mi">12</span><span class="p">)</span>
@@ -14806,7 +14807,7 @@ Std. deviation:
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Change in fee accounting for std. deviation of blocks:
-฿           0.63926610 BTC
+฿           0.67647396 BTC
 </pre>
 </div>
 </div>
@@ -14817,7 +14818,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[114]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">max_fee_per_block</span> <span class="o">=</span> <span class="n">max_revenue</span> <span class="o">/</span> <span class="n">mean_blocks_per_day</span>
@@ -14839,7 +14840,7 @@ Std. deviation:
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Max fee per block (derived by max fee per day over the last year):
-฿           1.58691524 BTC
+฿           1.83359722 BTC
 </pre>
 </div>
 </div>
@@ -14987,15 +14988,462 @@ Std. deviation:
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Nice-hash-1/3-or-0.382-of-Bitcoin-hashrate">Nice hash 1/3 or 0.382 of Bitcoin hashrate<a class="anchor-link" href="#Nice-hash-1/3-or-0.382-of-Bitcoin-hashrate">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What are the costs of renting 1/3 of the Bitcoin hashrate for 1h (i.e., 6 blocks)
+<a href="https://api.crypto51.app">https://api.crypto51.app</a></p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[120]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1">#fraction = 0.33</span>
+<span class="n">fraction</span> <span class="o">=</span> <span class="mf">0.382</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.crypto51.app/coins.json&quot;</span>
+
+<span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">coins</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;coins&quot;</span><span class="p">]</span>
+<span class="n">bitcoin</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">coins</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Bitcoin&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">bitcoin</span> <span class="o">=</span> <span class="n">c</span> 
+        <span class="k">break</span>
+        
+<span class="n">attack_costs_one_third_USD</span> <span class="o">=</span> <span class="p">(</span><span class="n">bitcoin</span><span class="p">[</span><span class="s2">&quot;attack_hourly_cost&quot;</span><span class="p">]</span><span class="o">/</span><span class="mf">0.51</span><span class="p">)</span><span class="o">*</span><span class="n">fraction</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://blockchain.info/tobtc&quot;</span>
+<span class="n">params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">currency</span><span class="o">=</span><span class="s2">&quot;USD&quot;</span><span class="p">,</span>
+              <span class="n">value</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{:2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">attack_costs_one_third_USD</span><span class="p">))</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+<span class="n">attack_costs_one_third_BTC</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Renting 1/3 of the Bitcoin hashrate for one hour (6 blocks) approximately costs $ </span><span class="si">{:,.2f}</span><span class="s2"> USD or </span><span class="si">{:,.8f}</span><span class="s2"> BTC&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">attack_costs_one_third_USD</span><span class="p">,</span><span class="n">attack_costs_one_third_BTC</span><span class="p">))</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{&#39;symbol&#39;: &#39;BTC&#39;, &#39;name&#39;: &#39;Bitcoin&#39;, &#39;minethecoin_link&#39;: &#39;https://google.com&#39;, &#39;algorithm&#39;: &#39;SHA-256&#39;, &#39;market_cap&#39;: 267363077336.0, &#39;market_cap_pretty&#39;: &#39;$267.36 B&#39;, &#39;hash_rate&#39;: 126274893865347775831, &#39;hash_rate_pretty&#39;: &#39;126,275 PH/s&#39;, &#39;rentable_capacity&#39;: 4.073256385799018e+17, &#39;rentable_capacity_pretty&#39;: &#39;407 PH/s&#39;, &#39;nicehash_market_link&#39;: &#39;https://www.nicehash.com/algorithm/sha256&#39;, &#39;attack_hourly_cost&#39;: 675811.0121936678, &#39;attack_hourly_cost_pretty&#39;: &#39;$675,811&#39;, &#39;network_vs_rentable_ratio&#39;: 0.0032257056498835807, &#39;rentable_price_btc&#39;: &#39;0.009&#39;, &#39;rentable_price_units&#39;: &#39;PH&#39;, &#39;rentable_price_usd_hour&#39;: &#39;$5.35&#39;, &#39;block_time&#39;: 571.0}
+
+Renting 1/3 of the Bitcoin hashrate for one hour (6 blocks) approximately costs $ 506,195.70 USD or 34.86036039 BTC
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>How much do the CensorshipCon payouts cost in Ethereum:</p>
+<p><a href="https://fc18.ifca.ai/bitcoin/papers/bitcoin18-final14.pdf">https://fc18.ifca.ai/bitcoin/papers/bitcoin18-final14.pdf</a></p>
+<blockquote><p>$ c_{payout} = c_{bribe} + c_{block} − c_{uncle} $</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[69]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">exchangerate</span><span class="p">(</span><span class="n">fromcurrency</span><span class="p">,</span><span class="n">tocurrency</span><span class="p">):</span>
+    <span class="c1"># example:</span>
+    <span class="c1"># exchangerate(&quot;ETH&quot;,&quot;USD&quot;)</span>
+    <span class="c1"># 381.48</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://min-api.cryptocompare.com/data/price&quot;</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">fsym</span><span class="o">=</span><span class="n">fromcurrency</span><span class="p">,</span>
+                  <span class="n">tsyms</span><span class="o">=</span><span class="n">tocurrency</span><span class="p">)</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="n">tocurrency</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[91]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">EX_ETH_in_USD</span> <span class="o">=</span> <span class="n">exchangerate</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span><span class="s2">&quot;USD&quot;</span><span class="p">)</span>
+<span class="n">EX_ETH_in_USD</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[91]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>399.37</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[92]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">EX_BTC_in_ETH</span> <span class="o">=</span> <span class="n">exchangerate</span><span class="p">(</span><span class="s2">&quot;BTC&quot;</span><span class="p">,</span><span class="s2">&quot;ETH&quot;</span><span class="p">)</span>
+<span class="n">EX_BTC_in_ETH</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[92]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>36.35</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[94]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ethereum_block_reward_in_ETH</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">ethereum_mean_fees_per_block_in_ETH</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">c_block</span> <span class="o">=</span> <span class="n">ethereum_block_reward_in_ETH</span> <span class="o">+</span> <span class="n">ethereum_mean_fees_per_block_in_ETH</span>
+<span class="n">c_block</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[94]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.5</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[95]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c_uncle</span> <span class="o">=</span> <span class="n">ethereum_block_reward_in_ETH</span><span class="o">*</span><span class="p">(</span><span class="mi">7</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">c_uncle</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[95]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1.75</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[109]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean_number_of_ethereum_blocks_per_h</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="mi">60</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span><span class="o">/</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">mean_number_of_ethereum_blocks_per_h</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[109]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>240</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[111]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c_bribe</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="n">EX_BTC_in_ETH</span><span class="p">)</span><span class="o">/</span><span class="n">mean_number_of_ethereum_blocks_per_h</span>
+<span class="n">c_bribe</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[111]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.15145833333333333</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[112]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c_censorshipcon</span> <span class="o">=</span> <span class="n">c_bribe</span> <span class="o">+</span> <span class="n">c_block</span> <span class="o">-</span> <span class="n">c_uncle</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[113]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c_censorshipcon_per_h_in_ETH</span> <span class="o">=</span> <span class="n">c_censorshipcon</span> <span class="o">*</span> <span class="n">mean_number_of_ethereum_blocks_per_h</span>
+<span class="n">c_censorshipcon_per_h_in_ETH</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[113]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>216.34999999999997</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[114]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c_censorshipcon_per_h_in_USD</span> <span class="o">=</span> <span class="n">c_censorshipcon_per_h_in_ETH</span> <span class="o">*</span> <span class="n">EX_ETH_in_USD</span>
+<span class="n">c_censorshipcon_per_h_in_USD</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[114]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>86403.69949999999</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[115]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c_censorshipcon_per_h_in_BTC</span> <span class="o">=</span> <span class="n">c_censorshipcon_per_h_in_ETH</span> <span class="o">/</span> <span class="n">EX_BTC_in_ETH</span>
+<span class="n">c_censorshipcon_per_h_in_BTC</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[115]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>5.951856946354882</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[118]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The paymouts for operating censorship con for one hour (</span><span class="si">{:d}</span><span class="s2"> ethereum blocks) approximately costs $ </span><span class="si">{:,.2f}</span><span class="s2"> USD or </span><span class="si">{:,.8f}</span><span class="s2"> BTC&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mean_number_of_ethereum_blocks_per_h</span><span class="p">,</span><span class="n">c_censorshipcon_per_h_in_USD</span><span class="p">,</span><span class="n">c_censorshipcon_per_h_in_BTC</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The paymouts for operating censorship con for one hour (240 ethereum blocks) approximately costs $ 86,403.70 USD or 5.95185695 BTC
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
