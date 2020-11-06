@@ -13092,7 +13092,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[121]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -13121,7 +13121,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[122]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>wget -O <span class="s2">&quot;estimated-transaction-volume-usd.csv&quot;</span>  <span class="s2">&quot;https://api.blockchain.info/charts/estimated-transaction-volume-usd?timespan=1year&amp;format=csv&quot;</span>
@@ -13141,16 +13141,16 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>--2019-10-15 15:38:33--  https://api.blockchain.info/charts/estimated-transaction-volume-usd?timespan=1year&amp;format=csv
+<pre>--2020-11-06 10:55:09--  https://api.blockchain.info/charts/estimated-transaction-volume-usd?timespan=1year&amp;format=csv
 Resolving api.blockchain.info (api.blockchain.info)... 104.16.55.3, 104.16.54.3
 Connecting to api.blockchain.info (api.blockchain.info)|104.16.55.3|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: unspecified [text/csv]
 Saving to: ‘estimated-transaction-volume-usd.csv’
 
-estimated-transacti     [ &lt;=&gt;                ]  13.66K  --.-KB/s    in 0.001s  
+estimated-transacti     [ &lt;=&gt;                ]  13.27K  --.-KB/s    in 0.001s  
 
-2019-10-15 15:38:33 (13.5 MB/s) - ‘estimated-transaction-volume-usd.csv’ saved [13992]
+2020-11-06 10:55:10 (10.5 MB/s) - ‘estimated-transaction-volume-usd.csv’ saved [13584]
 
 </pre>
 </div>
@@ -13162,7 +13162,7 @@ estimated-transacti     [ &lt;=&gt;                ]  13.66K  --.-KB/s    in 0.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[123]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_vol</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;estimated-transaction-volume-usd.csv&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
@@ -13191,7 +13191,7 @@ estimated-transacti     [ &lt;=&gt;                ]  13.66K  --.-KB/s    in 0.0
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[12]:</div>
+    <div class="prompt output_prompt">Out[123]:</div>
 
 
 
@@ -13221,28 +13221,28 @@ estimated-transacti     [ &lt;=&gt;                ]  13.66K  --.-KB/s    in 0.0
   <tbody>
     <tr>
       <td>0</td>
-      <td>2018-10-15 00:00:00</td>
-      <td>1397520263.45377254486083984375000</td>
+      <td>2019-11-07 00:00:00</td>
+      <td>1410260957.176000118255615234375000</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>2018-10-16 00:00:00</td>
-      <td>903556367.08799004554748535156250</td>
+      <td>2019-11-08 00:00:00</td>
+      <td>1458241138.127779960632324218750000</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>2018-10-17 00:00:00</td>
-      <td>728506819.17753159999847412109375</td>
+      <td>2019-11-09 00:00:00</td>
+      <td>1046596790.168880105018615722656250</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>2018-10-18 00:00:00</td>
-      <td>877725432.40643978118896484375000</td>
+      <td>2019-11-10 00:00:00</td>
+      <td>364320564.190367996692657470703125</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>2018-10-19 00:00:00</td>
-      <td>839318447.66251254081726074218750</td>
+      <td>2019-11-11 00:00:00</td>
+      <td>718863061.191659927368164062500000</td>
     </tr>
   </tbody>
 </table>
@@ -13257,7 +13257,7 @@ estimated-transacti     [ &lt;=&gt;                ]  13.66K  --.-KB/s    in 0.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[124]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">min_volume</span> <span class="o">=</span> <span class="n">df_vol</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
@@ -13285,13 +13285,13 @@ estimated-transacti     [ &lt;=&gt;                ]  13.66K  --.-KB/s    in 0.0
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Min:
-$       223,086,857.01 USD
+$       278,141,981.97 USD
 Max:
-$     4,044,689,274.53 USD
+$     5,149,644,713.05 USD
 Median:
-$       782,426,488.16 USD
+$     1,263,375,218.87 USD
 Mean:
-$       941,545,178.25 USD
+$     1,352,793,580.94 USD
 </pre>
 </div>
 </div>
@@ -13312,7 +13312,7 @@ $       941,545,178.25 USD
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[125]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>wget -O <span class="s2">&quot;miners-revenue.csv&quot;</span> <span class="s2">&quot;https://api.blockchain.info/charts/miners-revenue?timespan=1year&amp;format=csv&quot;</span>
@@ -13332,16 +13332,16 @@ $       941,545,178.25 USD
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>--2019-10-15 16:14:56--  https://api.blockchain.info/charts/miners-revenue?timespan=1year&amp;format=csv
+<pre>--2020-11-06 10:55:24--  https://api.blockchain.info/charts/miners-revenue?timespan=1year&amp;format=csv
 Resolving api.blockchain.info (api.blockchain.info)... 104.16.54.3, 104.16.55.3
 Connecting to api.blockchain.info (api.blockchain.info)|104.16.54.3|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: unspecified [text/csv]
 Saving to: ‘miners-revenue.csv’
 
-miners-revenue.csv      [ &lt;=&gt;                ]  13.66K  --.-KB/s    in 0.002s  
+miners-revenue.csv      [ &lt;=&gt;                ]  13.27K  --.-KB/s    in 0.001s  
 
-2019-10-15 16:14:56 (8.23 MB/s) - ‘miners-revenue.csv’ saved [13985]
+2020-11-06 10:55:24 (20.5 MB/s) - ‘miners-revenue.csv’ saved [13591]
 
 </pre>
 </div>
@@ -13353,7 +13353,7 @@ miners-revenue.csv      [ &lt;=&gt;                ]  13.66K  --.-KB/s    in 0.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[126]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_rev</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;miners-revenue.csv&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
@@ -13382,7 +13382,7 @@ miners-revenue.csv      [ &lt;=&gt;                ]  13.66K  --.-KB/s    in 0.0
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[27]:</div>
+    <div class="prompt output_prompt">Out[126]:</div>
 
 
 
@@ -13412,28 +13412,28 @@ miners-revenue.csv      [ &lt;=&gt;                ]  13.66K  --.-KB/s    in 0.0
   <tbody>
     <tr>
       <td>0</td>
-      <td>2018-10-15 00:00:00</td>
-      <td>13215486.35126505978405475616455078125</td>
+      <td>2019-11-07 00:00:00</td>
+      <td>15970955.43565280176699161529541015625</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>2018-10-16 00:00:00</td>
-      <td>11259236.32218853943049907684326171875</td>
+      <td>2019-11-08 00:00:00</td>
+      <td>14762408.03737629950046539306640625000</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>2018-10-17 00:00:00</td>
-      <td>11502916.70056558959186077117919921875</td>
+      <td>2019-11-09 00:00:00</td>
+      <td>16111246.61625389941036701202392578125</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>2018-10-18 00:00:00</td>
-      <td>11448484.29383384063839912414550781250</td>
+      <td>2019-11-10 00:00:00</td>
+      <td>18896479.02892900258302688598632812500</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>2018-10-19 00:00:00</td>
-      <td>11629773.63004752434790134429931640625</td>
+      <td>2019-11-11 00:00:00</td>
+      <td>16881322.71286659687757492065429687500</td>
     </tr>
   </tbody>
 </table>
@@ -13448,7 +13448,7 @@ miners-revenue.csv      [ &lt;=&gt;                ]  13.66K  --.-KB/s    in 0.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[127]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">min_revenue</span> <span class="o">=</span> <span class="n">df_rev</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
@@ -13476,13 +13476,13 @@ miners-revenue.csv      [ &lt;=&gt;                ]  13.66K  --.-KB/s    in 0.0
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Min:
-$         4,750,978.91 USD
+$         6,941,254.72 USD
 Max:
-$        28,500,796.50 USD
+$        20,893,224.44 USD
 Median:
-$        11,207,341.46 USD
+$        12,309,250.39 USD
 Mean:
-$        12,921,474.08 USD
+$        12,826,088.63 USD
 </pre>
 </div>
 </div>
@@ -13503,7 +13503,7 @@ $        12,921,474.08 USD
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[128]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>wget -O <span class="s2">&quot;transaction-fees-usd.csv&quot;</span>  <span class="s2">&quot;https://api.blockchain.info/charts/transaction-fees-usd?timespan=1year&amp;format=csv&quot;</span>
@@ -13523,16 +13523,16 @@ $        12,921,474.08 USD
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>--2020-11-01 20:04:11--  https://api.blockchain.info/charts/transaction-fees-usd?timespan=1year&amp;format=csv
-Resolving api.blockchain.info (api.blockchain.info)... 104.16.54.3, 104.16.55.3
-Connecting to api.blockchain.info (api.blockchain.info)|104.16.54.3|:443... connected.
+<pre>--2020-11-06 10:55:31--  https://api.blockchain.info/charts/transaction-fees-usd?timespan=1year&amp;format=csv
+Resolving api.blockchain.info (api.blockchain.info)... 104.16.55.3, 104.16.54.3
+Connecting to api.blockchain.info (api.blockchain.info)|104.16.55.3|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: unspecified [text/csv]
 Saving to: ‘transaction-fees-usd.csv’
 
-transaction-fees-us     [ &lt;=&gt;                ]  13.14K  --.-KB/s    in 0.001s  
+transaction-fees-us     [ &lt;=&gt;                ]  13.15K  --.-KB/s    in 0.001s  
 
-2020-11-01 20:04:11 (9.18 MB/s) - ‘transaction-fees-usd.csv’ saved [13458]
+2020-11-06 10:55:32 (13.1 MB/s) - ‘transaction-fees-usd.csv’ saved [13467]
 
 </pre>
 </div>
@@ -13544,7 +13544,7 @@ transaction-fees-us     [ &lt;=&gt;                ]  13.14K  --.-KB/s    in 0.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[129]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_rev</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;transaction-fees-usd.csv&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
@@ -13573,7 +13573,7 @@ transaction-fees-us     [ &lt;=&gt;                ]  13.14K  --.-KB/s    in 0.0
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[4]:</div>
+    <div class="prompt output_prompt">Out[129]:</div>
 
 
 
@@ -13603,28 +13603,28 @@ transaction-fees-us     [ &lt;=&gt;                ]  13.14K  --.-KB/s    in 0.0
   <tbody>
     <tr>
       <td>0</td>
-      <td>2019-11-02 00:00:00</td>
-      <td>257824.3645515299867838621139526367187500</td>
+      <td>2019-11-07 00:00:00</td>
+      <td>367032.92376687104115262627601623535156250</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>2019-11-03 00:00:00</td>
-      <td>241157.7438360649975948035717010498046875</td>
+      <td>2019-11-08 00:00:00</td>
+      <td>366614.28737628500675782561302185058593750</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>2019-11-04 00:00:00</td>
-      <td>448652.6724390489980578422546386718750000</td>
+      <td>2019-11-09 00:00:00</td>
+      <td>259400.11593980397447012364864349365234375</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>2019-11-05 00:00:00</td>
-      <td>409189.5960616800002753734588623046875000</td>
+      <td>2019-11-10 00:00:00</td>
+      <td>213741.52892900499864481389522552490234375</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>2019-11-06 00:00:00</td>
-      <td>361228.7634430049802176654338836669921875</td>
+      <td>2019-11-11 00:00:00</td>
+      <td>259985.21286661500926129519939422607421875</td>
     </tr>
   </tbody>
 </table>
@@ -13639,7 +13639,7 @@ transaction-fees-us     [ &lt;=&gt;                ]  13.14K  --.-KB/s    in 0.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[130]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">min_fee</span> <span class="o">=</span> <span class="n">df_rev</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
@@ -13669,11 +13669,11 @@ transaction-fees-us     [ &lt;=&gt;                ]  13.14K  --.-KB/s    in 0.0
 <pre>Min:
 ฿      71,819.53588182 BTC
 Max:
-฿   3,627,758.72096008 BTC
+฿   4,605,834.21433838 BTC
 Median:
-฿     343,583.95117743 BTC
+฿     349,099.40130140 BTC
 Mean:
-฿     590,117.66528965 BTC
+฿     631,124.08790922 BTC
 </pre>
 </div>
 </div>
@@ -13691,7 +13691,7 @@ Mean:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[131]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean_volume</span> <span class="o">/</span> <span class="n">mean_revenue</span>
@@ -13707,13 +13707,13 @@ Mean:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[34]:</div>
+    <div class="prompt output_prompt">Out[131]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>72.86670021635685</pre>
+<pre>105.47202814275745</pre>
 </div>
 
 </div>
@@ -13724,7 +13724,7 @@ Mean:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[132]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">median_volume</span> <span class="o">/</span> <span class="n">median_revenue</span>
@@ -13740,13 +13740,13 @@ Mean:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[35]:</div>
+    <div class="prompt output_prompt">Out[132]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>69.8137458396992</pre>
+<pre>102.63624336533381</pre>
 </div>
 
 </div>
@@ -13757,7 +13757,7 @@ Mean:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[133]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean_volume</span> <span class="o">/</span> <span class="n">mean_fee</span>
@@ -13773,13 +13773,13 @@ Mean:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[36]:</div>
+    <div class="prompt output_prompt">Out[133]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>2332.5847556669914</pre>
+<pre>2143.4668821169166</pre>
 </div>
 
 </div>
@@ -13790,7 +13790,7 @@ Mean:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[134]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">median_volume</span> <span class="o">/</span> <span class="n">median_fee</span>
@@ -13806,13 +13806,13 @@ Mean:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[37]:</div>
+    <div class="prompt output_prompt">Out[134]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>3435.811259609016</pre>
+<pre>3618.9555586750503</pre>
 </div>
 
 </div>
@@ -13833,7 +13833,7 @@ Mean:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[135]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>wget -O <span class="s2">&quot;estimated-transaction-volume.csv&quot;</span>  <span class="s2">&quot;https://api.blockchain.info/charts/estimated-transaction-volume?timespan=1year&amp;format=csv&quot;</span>
@@ -13853,16 +13853,16 @@ Mean:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>--2019-10-15 15:33:07--  https://api.blockchain.info/charts/estimated-transaction-volume?timespan=1year&amp;format=csv
-Resolving api.blockchain.info (api.blockchain.info)... 104.16.55.3, 104.16.54.3
-Connecting to api.blockchain.info (api.blockchain.info)|104.16.55.3|:443... connected.
+<pre>--2020-11-06 10:56:11--  https://api.blockchain.info/charts/estimated-transaction-volume?timespan=1year&amp;format=csv
+Resolving api.blockchain.info (api.blockchain.info)... 104.16.54.3, 104.16.55.3
+Connecting to api.blockchain.info (api.blockchain.info)|104.16.54.3|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: unspecified [text/csv]
 Saving to: ‘estimated-transaction-volume.csv’
 
-estimated-transacti     [ &lt;=&gt;                ]  13.57K  --.-KB/s    in 0.001s  
+estimated-transacti     [ &lt;=&gt;                ]  12.90K  --.-KB/s    in 0.001s  
 
-2019-10-15 15:33:07 (15.3 MB/s) - ‘estimated-transaction-volume.csv’ saved [13900]
+2020-11-06 10:56:11 (11.2 MB/s) - ‘estimated-transaction-volume.csv’ saved [13207]
 
 </pre>
 </div>
@@ -13874,7 +13874,7 @@ estimated-transacti     [ &lt;=&gt;                ]  13.57K  --.-KB/s    in 0.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[131]:</div>
+<div class="prompt input_prompt">In&nbsp;[136]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_vol</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;estimated-transaction-volume.csv&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
@@ -13903,198 +13903,7 @@ estimated-transacti     [ &lt;=&gt;                ]  13.57K  --.-KB/s    in 0.0
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[131]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>0</th>
-      <th>1</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2017-08-18 00:00:00</td>
-      <td>275331.80887692997930571436882019042968750</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2017-08-19 00:00:00</td>
-      <td>313472.69392997998511418700218200683593750</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2017-08-20 00:00:00</td>
-      <td>181583.87597230999381281435489654541015625</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2017-08-21 00:00:00</td>
-      <td>202649.23936119000427424907684326171875000</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2017-08-22 00:00:00</td>
-      <td>215933.01456173000042326748371124267578125</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[132]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">min_revenue</span> <span class="o">=</span> <span class="n">df_vol</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Min:</span><span class="se">\n</span><span class="s1">฿ </span><span class="si">{:&gt;20,.8f}</span><span class="s1"> BTC&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">min_revenue</span><span class="p">))</span>
-<span class="n">max_revenue</span> <span class="o">=</span> <span class="n">df_vol</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Max:</span><span class="se">\n</span><span class="s1">฿ </span><span class="si">{:&gt;20,.8f}</span><span class="s1"> BTC&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_revenue</span><span class="p">))</span>
-<span class="n">median_revenue</span> <span class="o">=</span> <span class="n">df_vol</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Median:</span><span class="se">\n</span><span class="s1">฿ </span><span class="si">{:&gt;20,.8f}</span><span class="s1"> BTC&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">median_revenue</span><span class="p">))</span>
-<span class="n">mean_revenue</span> <span class="o">=</span> <span class="n">df_vol</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean:</span><span class="se">\n</span><span class="s1">฿ </span><span class="si">{:&gt;20,.8f}</span><span class="s1"> BTC&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mean_revenue</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Min:
-฿      52,417.41808258 BTC
-Max:
-฿     407,836.91191003 BTC
-Median:
-฿     156,169.96115303 BTC
-Mean:
-฿     173,139.73753751 BTC
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Transaction-fees-per-day-in-BTC">Transaction fees per day in BTC<a class="anchor-link" href="#Transaction-fees-per-day-in-BTC">&#182;</a></h2><blockquote><p>The total value of all transaction fees paid to miners (not including the coinbase value of block rewards).</p>
-</blockquote>
-<p><a href="https://www.blockchain.com/charts/transaction-fees?timespan=1year">https://www.blockchain.com/charts/transaction-fees?timespan=1year</a></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>wget -O <span class="s2">&quot;transaction-fees.csv&quot;</span> <span class="s2">&quot;https://api.blockchain.info/charts/transaction-fees?timespan=1year&amp;format=csv&quot;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>--2020-11-01 20:05:25--  https://api.blockchain.info/charts/transaction-fees?timespan=1year&amp;format=csv
-Resolving api.blockchain.info (api.blockchain.info)... 104.16.55.3, 104.16.54.3
-Connecting to api.blockchain.info (api.blockchain.info)|104.16.55.3|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: unspecified [text/csv]
-Saving to: ‘transaction-fees.csv’
-
-transaction-fees.cs     [ &lt;=&gt;                ]  11.79K  --.-KB/s    in 0.001s  
-
-2020-11-01 20:05:25 (15.9 MB/s) - ‘transaction-fees.csv’ saved [12074]
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_rev</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;transaction-fees.csv&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_rev</span><span class="p">))</span>
-<span class="n">df_rev</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>365
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[7]:</div>
+    <div class="prompt output_prompt">Out[136]:</div>
 
 
 
@@ -14124,28 +13933,28 @@ transaction-fees.cs     [ &lt;=&gt;                ]  11.79K  --.-KB/s    in 0.0
   <tbody>
     <tr>
       <td>0</td>
-      <td>2019-11-02 00:00:00</td>
-      <td>27.6902494200000006685513653792440891265869140...</td>
+      <td>2019-11-07 00:00:00</td>
+      <td>152471.283771449991036206483840942382812500</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>2019-11-03 00:00:00</td>
-      <td>26.0661656000000014898887457093223929405212402...</td>
+      <td>2019-11-08 00:00:00</td>
+      <td>162088.653299249999690800905227661132812500</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>2019-11-04 00:00:00</td>
-      <td>48.2878517600000023435313778463751077651977539...</td>
+      <td>2019-11-09 00:00:00</td>
+      <td>118708.851085779999266378581523895263671875</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>2019-11-05 00:00:00</td>
-      <td>43.7323248200000023189204512163996696472167968...</td>
+      <td>2019-11-10 00:00:00</td>
+      <td>40975.991727999993599951267242431640625000</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>2019-11-06 00:00:00</td>
-      <td>38.6653984200000024884502636268734931945800781...</td>
+      <td>2019-11-11 00:00:00</td>
+      <td>81787.855967140101711265742778778076171875</td>
     </tr>
   </tbody>
 </table>
@@ -14160,7 +13969,198 @@ transaction-fees.cs     [ &lt;=&gt;                ]  11.79K  --.-KB/s    in 0.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[137]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">min_revenue</span> <span class="o">=</span> <span class="n">df_vol</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Min:</span><span class="se">\n</span><span class="s1">฿ </span><span class="si">{:&gt;20,.8f}</span><span class="s1"> BTC&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">min_revenue</span><span class="p">))</span>
+<span class="n">max_revenue</span> <span class="o">=</span> <span class="n">df_vol</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Max:</span><span class="se">\n</span><span class="s1">฿ </span><span class="si">{:&gt;20,.8f}</span><span class="s1"> BTC&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_revenue</span><span class="p">))</span>
+<span class="n">median_revenue</span> <span class="o">=</span> <span class="n">df_vol</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Median:</span><span class="se">\n</span><span class="s1">฿ </span><span class="si">{:&gt;20,.8f}</span><span class="s1"> BTC&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">median_revenue</span><span class="p">))</span>
+<span class="n">mean_revenue</span> <span class="o">=</span> <span class="n">df_vol</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean:</span><span class="se">\n</span><span class="s1">฿ </span><span class="si">{:&gt;20,.8f}</span><span class="s1"> BTC&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mean_revenue</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Min:
+฿      38,648.24679086 BTC
+Max:
+฿     562,532.03844696 BTC
+Median:
+฿     144,103.09234183 BTC
+Mean:
+฿     147,332.24895597 BTC
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Transaction-fees-per-day-in-BTC">Transaction fees per day in BTC<a class="anchor-link" href="#Transaction-fees-per-day-in-BTC">&#182;</a></h2><blockquote><p>The total value of all transaction fees paid to miners (not including the coinbase value of block rewards).</p>
+</blockquote>
+<p><a href="https://www.blockchain.com/charts/transaction-fees?timespan=1year">https://www.blockchain.com/charts/transaction-fees?timespan=1year</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[138]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>wget -O <span class="s2">&quot;transaction-fees.csv&quot;</span> <span class="s2">&quot;https://api.blockchain.info/charts/transaction-fees?timespan=1year&amp;format=csv&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>--2020-11-06 10:56:29--  https://api.blockchain.info/charts/transaction-fees?timespan=1year&amp;format=csv
+Resolving api.blockchain.info (api.blockchain.info)... 104.16.55.3, 104.16.54.3
+Connecting to api.blockchain.info (api.blockchain.info)|104.16.55.3|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/csv]
+Saving to: ‘transaction-fees.csv’
+
+transaction-fees.cs     [ &lt;=&gt;                ]  11.82K  --.-KB/s    in 0.001s  
+
+2020-11-06 10:56:29 (13.0 MB/s) - ‘transaction-fees.csv’ saved [12103]
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[139]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_rev</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;transaction-fees.csv&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_rev</span><span class="p">))</span>
+<span class="n">df_rev</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>365
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[139]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>2019-11-07 00:00:00</td>
+      <td>39.7364060399999985406793712172657251358032226...</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2019-11-08 00:00:00</td>
+      <td>40.8887910400000009758514352142810821533203125...</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2019-11-09 00:00:00</td>
+      <td>29.4426095399999994128847902175039052963256835...</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2019-11-10 00:00:00</td>
+      <td>23.8664219600000002685646904865279793739318847...</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2019-11-11 00:00:00</td>
+      <td>29.5623873900000013748012861469760537147521972...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[140]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">min_revenue</span> <span class="o">=</span> <span class="n">df_rev</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
@@ -14192,13 +14192,13 @@ transaction-fees.cs     [ &lt;=&gt;                ]  11.79K  --.-KB/s    in 0.0
 <pre>Min:
 ฿           9.97099973 BTC
 Max:
-฿         264.03799985 BTC
+฿         289.30998956 BTC
 Median:
-฿          39.73640604 BTC
+฿          40.08334016 BTC
 Mean:
-฿          58.50901483 BTC
+฿          61.13273093 BTC
 Std. deviation:
-฿          47.02092264 BTC
+฿          51.14367807 BTC
 </pre>
 </div>
 </div>
@@ -14209,7 +14209,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[141]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean_block_interval</span> <span class="o">=</span> <span class="mi">60</span><span class="o">*</span><span class="mi">10</span>
@@ -14226,7 +14226,7 @@ Std. deviation:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[141]:</div>
 
 
 
@@ -14243,7 +14243,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[142]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">seconds_per_day</span> <span class="o">=</span> <span class="mi">60</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="mi">24</span>
@@ -14260,7 +14260,7 @@ Std. deviation:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[142]:</div>
 
 
 
@@ -14277,7 +14277,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[143]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean_revenue</span>
@@ -14293,13 +14293,13 @@ Std. deviation:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[11]:</div>
+    <div class="prompt output_prompt">Out[143]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>58.50901482731508</pre>
+<pre>61.13273093172602</pre>
 </div>
 
 </div>
@@ -14318,7 +14318,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[144]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean_blocks_per_day</span> <span class="o">=</span> <span class="n">seconds_per_day</span> <span class="o">/</span> <span class="n">mean_block_interval</span>
@@ -14335,7 +14335,7 @@ Std. deviation:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[12]:</div>
+    <div class="prompt output_prompt">Out[144]:</div>
 
 
 
@@ -14352,7 +14352,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[145]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean_fee_per_block</span> <span class="o">=</span> <span class="n">mean_revenue</span> <span class="o">/</span> <span class="n">mean_blocks_per_day</span> 
@@ -14374,7 +14374,7 @@ Std. deviation:
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Mean fee per block (derived by mean fee per day over the last year):
-฿           0.40631260 BTC
+฿           0.42453285 BTC
 </pre>
 </div>
 </div>
@@ -14393,7 +14393,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[146]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">60</span><span class="o">*</span><span class="mi">24</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
@@ -14409,7 +14409,7 @@ Std. deviation:
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[16]:</div>
+    <div class="prompt output_prompt">Out[146]:</div>
 
 
 
@@ -14426,7 +14426,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[147]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span><span class="o">=</span><span class="mi">0</span>
@@ -14665,7 +14665,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[148]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># check if values look ok</span>
@@ -14719,7 +14719,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[149]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean_fee_per_block</span> <span class="o">=</span> <span class="p">(</span><span class="n">mean_revenue</span><span class="o">+</span><span class="n">std_revenue</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">mean_blocks_per_day</span><span class="o">-</span><span class="mi">12</span> <span class="p">)</span>
@@ -14741,7 +14741,7 @@ Std. deviation:
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Change in fee accounting for std. deviation of blocks:
-฿           0.79946922 BTC
+฿           0.85057886 BTC
 </pre>
 </div>
 </div>
@@ -14752,7 +14752,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[150]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean_fee_per_block</span> <span class="o">=</span> <span class="p">(</span><span class="n">mean_revenue</span><span class="o">+</span><span class="n">std_revenue</span><span class="p">)</span> <span class="o">/</span> <span class="n">mean_blocks_per_day</span> 
@@ -14774,7 +14774,7 @@ Std. deviation:
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Mean fee per block (derived by mean fee per day over the last year):
-฿           0.73284679 BTC
+฿           0.77969728 BTC
 </pre>
 </div>
 </div>
@@ -14785,7 +14785,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[151]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean_fee_per_block</span> <span class="o">=</span> <span class="p">(</span><span class="n">mean_revenue</span><span class="o">+</span><span class="n">std_revenue</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">mean_blocks_per_day</span><span class="o">+</span><span class="mi">12</span><span class="p">)</span>
@@ -14807,7 +14807,7 @@ Std. deviation:
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Change in fee accounting for std. deviation of blocks:
-฿           0.67647396 BTC
+฿           0.71972057 BTC
 </pre>
 </div>
 </div>
@@ -14818,7 +14818,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[152]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">max_fee_per_block</span> <span class="o">=</span> <span class="n">max_revenue</span> <span class="o">/</span> <span class="n">mean_blocks_per_day</span>
@@ -14840,7 +14840,7 @@ Std. deviation:
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Max fee per block (derived by max fee per day over the last year):
-฿           1.83359722 BTC
+฿           2.00909715 BTC
 </pre>
 </div>
 </div>
@@ -14858,10 +14858,11 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[122]:</div>
+<div class="prompt input_prompt">In&nbsp;[157]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">current_block_reward_BTC</span> <span class="o">=</span> <span class="mf">12.5</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">8</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#current_block_reward_BTC = 12.5*10**8</span>
+<span class="n">current_block_reward_BTC</span> <span class="o">=</span> <span class="mf">6.25</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">8</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;current block reward:</span><span class="se">\n</span><span class="s1">฿ </span><span class="si">{:&gt;20,.8f}</span><span class="s1"> BTC&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">current_block_reward_BTC</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">)))</span>
 </pre></div>
 
@@ -14880,7 +14881,7 @@ Std. deviation:
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>current block reward:
-฿          12.50000000 BTC
+฿           6.25000000 BTC
 </pre>
 </div>
 </div>
@@ -14891,7 +14892,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[123]:</div>
+<div class="prompt input_prompt">In&nbsp;[158]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean_block_reward_per_day</span> <span class="o">=</span> <span class="p">(</span><span class="n">mean_blocks_per_day</span><span class="o">-</span><span class="mi">12</span><span class="p">)</span> <span class="o">*</span> <span class="n">current_block_reward_BTC</span>
@@ -14913,7 +14914,7 @@ Std. deviation:
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>mean - std. dev. current block reward per day:
-฿       1,650.00000000 BTC
+฿         825.00000000 BTC
 </pre>
 </div>
 </div>
@@ -14924,7 +14925,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[124]:</div>
+<div class="prompt input_prompt">In&nbsp;[159]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean_block_reward_per_day</span> <span class="o">=</span> <span class="n">mean_blocks_per_day</span> <span class="o">*</span> <span class="n">current_block_reward_BTC</span>
@@ -14946,7 +14947,7 @@ Std. deviation:
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>mean current block reward per day:
-฿       1,800.00000000 BTC
+฿         900.00000000 BTC
 </pre>
 </div>
 </div>
@@ -14957,7 +14958,7 @@ Std. deviation:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[125]:</div>
+<div class="prompt input_prompt">In&nbsp;[160]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean_block_reward_per_day</span> <span class="o">=</span> <span class="p">(</span><span class="n">mean_blocks_per_day</span><span class="o">+</span><span class="mi">12</span><span class="p">)</span> <span class="o">*</span> <span class="n">current_block_reward_BTC</span>
@@ -14979,7 +14980,7 @@ Std. deviation:
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>mean + std. dev. current block reward per day:
-฿       1,950.00000000 BTC
+฿         975.00000000 BTC
 </pre>
 </div>
 </div>
