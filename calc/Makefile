@@ -9,24 +9,24 @@ HTMLPATH?=$(pwd)
 # $ python3.7 -m pip install -r requirements.txt
 init:
 	( \
-		virtualenv -p /usr/local/bin/python3.7 venv3.7; \
-  	. ./venv3.7/bin/activate; \
+		virtualenv -p /usr/bin/python3 venv3; \
+  	. ./venv3/bin/activate; \
 		python --version; \
-		python3.7 -m pip install -r requirements.txt; \
+		python3 -m pip install -r requirements.txt; \
 	)
 
 # install missing packages newly added to requirements.txt
 install:
 	( \
-    . ./venv3.7/bin/activate; \
+    . ./venv3/bin/activate; \
     python --version; \
-    python3.7 -m pip install -r requirements.txt; \
+    python3 -m pip install -r requirements.txt; \
   )
 
 # start jupyter notebook in virtual environment 
 start:
 	( \
-		. venv3.7/bin/activate; \
+		. venv3/bin/activate; \
 		jupyter notebook \
 	)
 
@@ -34,7 +34,7 @@ start:
 # $ make html HTMLPATH=./value_vs_rewards/
 html:
 	( \
-    . ./venv3.7/bin/activate; \
+    . ./venv3/bin/activate; \
 		jupyter nbconvert --to html $(HTMLPATH)*.ipynb \
 	) 
 
