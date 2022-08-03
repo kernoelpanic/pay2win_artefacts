@@ -16,12 +16,12 @@ defaultnode/.style={
 \node[state, right = 3mm of s1, defaultnode] (sdot) {$...$};
 \node[state, accepting, right = 3mm of sdot, defaultnode] (sl) {$S_{\ell}$};
 %\draw   (s0) edge[loop above] node{0} (s0)
-\path[->]   (s0) edge[loop below] node{$\beta$} (s0)
-(s0) edge[bend left, above] node{$\omega$} (s1)
-(s1) edge[bend left, above] node{$\beta$} (s0)
-(s1) edge[bend left, above] node{$\omega$} (sdot)
-(sdot) edge[bend left=40, below] node{$\beta$} (s0)
-(sdot) edge[bend left, above] node{$\omega$} (sl)
+\path[->]   (s0) edge[loop below] node{$p_{\mathcal{A}}$} (s0)
+(s0) edge[bend left, above] node{$p_{\mathcal{R}}$} (s1)
+(s1) edge[bend left, above] node{$$} (s0)
+(s1) edge[bend left, above] node{$p_{\mathcal{R}}$} (sdot)
+(sdot) edge[bend left=40, below] node{$p_{\mathcal{A}}$} (s0)
+(sdot) edge[bend left, above] node{$p_{\mathcal{R}}$} (sl)
 (sl) edge[loop above] node{$1$} (sl);
 \end{tikzpicture}
 
